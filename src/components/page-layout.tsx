@@ -65,7 +65,7 @@ const MainContainer: React.FC<LayoutProps & { children: React.ReactNode }> = ({
 
   return (
     <main
-      className={`min-h-[100vh] p-8 flex flex-${flexDirection} ${justifyClass} ${alignClass} gap-${gap} py-32`}
+      className={`min-h-[100vh] p-8 flex flex-${flexDirection} ${justifyClass} ${alignClass} gap-${gap} py-32 `}
     >
       {children}
     </main>
