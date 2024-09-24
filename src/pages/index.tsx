@@ -4,8 +4,11 @@ import { NextPage } from "next/types";
 import React from "react";
 import { Typography } from "@/components/ui/typography";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { NetworkIcons } from "@/components/contracts/network-icons";
-import { CardWrapper } from "@/components/card";
+import {
+  DeployedContractsCard,
+  LatestCommitCard,
+  ProjectsCard,
+} from "@/components/landing-page/cards";
 
 const HomePage: NextPage = () => {
   return (
@@ -37,34 +40,9 @@ const HomePage: NextPage = () => {
       </div>
 
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 flex-grow px-8 py-20 w-full">
-        <CardWrapper
-          title="Smart contracts"
-          description="Deployed on mainnet"
-          footerText="View all deployments"
-          href="/contracts"
-          footer={true}
-        >
-          <NetworkIcons display={"6"} />
-        </CardWrapper>
-
-        <CardWrapper
-          title="Projects"
-          description="Deployed on mainnet"
-          footerText="View all projects"
-          href="/projects"
-          footer={true}
-        >
-          <p>Card Content</p>
-        </CardWrapper>
-
-        <CardWrapper
-          title="Latest Commit"
-          description="Find me here"
-          footerText="when"
-          footer={true}
-        >
-          <p>Repo Name</p>
-        </CardWrapper>
+        <DeployedContractsCard />
+        <ProjectsCard />
+        <LatestCommitCard />
       </div>
 
       <div className="flex flex-col justify-center items-center gap-4 p-8">
