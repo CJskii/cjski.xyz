@@ -1,0 +1,199 @@
+import {
+  base,
+  polygonZkEvm,
+  bsc,
+  zora,
+  mantle,
+  metis,
+  zkSync,
+  canto,
+  harmonyOne,
+  optimism,
+  arbitrum,
+  polygon,
+  celo,
+  fantom,
+  moonbeam,
+  avalanche,
+  moonriver,
+  opBNB,
+  scroll,
+  arbitrumNova,
+  fuse,
+  meter,
+  aurora,
+  klaytn,
+  manta,
+  linea,
+  coreDao,
+  tenet,
+  astar,
+  kava,
+  pgn,
+  blast,
+  gnosis,
+  mode,
+} from "wagmi/chains";
+
+import deployments from "./deployed-contracts.json";
+
+interface DeployedContract {
+  name: string;
+  address: string;
+}
+
+export interface Network {
+  chainId: number;
+  name: string;
+  iconUrl: string;
+  deployedContracts: DeployedContract[];
+}
+
+export const networks = [
+  {
+    ...arbitrum,
+    iconUrl: "/chain-icons/arbitrum.svg",
+  },
+  {
+    ...base,
+    iconUrl: "/chain-icons/base.svg",
+  },
+  {
+    ...linea,
+    iconUrl: "/chain-icons/linea.svg",
+  },
+
+  {
+    ...optimism,
+    iconUrl: "/chain-icons/optimism.svg",
+  },
+  {
+    ...zkSync,
+    iconUrl: "/chain-icons/zksync.svg",
+  },
+  {
+    ...polygon,
+    iconUrl: "/chain-icons/polygon.svg",
+  },
+  {
+    ...polygonZkEvm,
+    iconUrl: "/chain-icons/polygon-zkevm.svg",
+  },
+  {
+    ...bsc,
+    iconUrl: "/chain-icons/bsc.svg",
+  },
+  {
+    ...zora,
+    iconUrl: "/chain-icons/zora.svg",
+  },
+  {
+    ...mantle,
+    iconUrl: "/chain-icons/mantle.svg",
+  },
+  {
+    ...metis,
+    iconUrl: "/chain-icons/metis.svg",
+  },
+
+  {
+    ...canto,
+    iconUrl: "/chain-icons/canto.svg",
+  },
+  {
+    ...harmonyOne,
+    iconUrl: "/chain-icons/harmony.svg",
+  },
+  {
+    ...celo,
+    iconUrl: "/chain-icons/celo.svg",
+  },
+  {
+    ...fantom,
+    iconUrl: "/chain-icons/fantom.svg",
+  },
+  {
+    ...moonbeam,
+    iconUrl: "/chain-icons/moonbeam.svg",
+  },
+  {
+    ...avalanche,
+    iconUrl: "/chain-icons/avalanche.svg",
+  },
+  {
+    ...moonriver,
+    iconUrl: "/chain-icons/moonriver.svg",
+  },
+  {
+    ...opBNB,
+    iconUrl: "/chain-icons/opbnb.svg",
+  },
+  {
+    ...scroll,
+    iconUrl: "/chain-icons/scroll.svg",
+  },
+  {
+    ...arbitrumNova,
+    iconUrl: "/chain-icons/arb-nova.svg",
+  },
+  {
+    ...fuse,
+    iconUrl: "/chain-icons/fuse.svg",
+  },
+  {
+    ...meter,
+    iconUrl: "/chain-icons/meter.svg",
+  },
+  {
+    ...aurora,
+    iconUrl: "/chain-icons/aurora.svg",
+  },
+  {
+    ...klaytn,
+    iconUrl: "/chain-icons/klaytn.svg",
+  },
+  {
+    ...manta,
+    iconUrl: "/chain-icons/manta.svg",
+  },
+  {
+    ...coreDao,
+    iconUrl: "/chain-icons/coredao.svg",
+  },
+  {
+    ...tenet,
+    iconUrl: "/chain-icons/tenet.svg",
+  },
+  {
+    ...astar,
+    iconUrl: "/chain-icons/astar.svg",
+  },
+  {
+    ...kava,
+    iconUrl: "/chain-icons/kava.svg",
+  },
+  {
+    ...pgn,
+    iconUrl: "/chain-icons/pgn.svg",
+  },
+  {
+    ...blast,
+    iconUrl: "/chain-icons/blast.svg",
+  },
+  {
+    ...gnosis,
+    iconUrl: "/chain-icons/gnosis.svg",
+  },
+  {
+    ...mode,
+    iconUrl: "/chain-icons/mode.svg",
+  },
+].map((network) => {
+  const deployment = Object.entries(deployments).find(
+    ([chainId, d]) => Number(chainId) === network.id
+  )?.[1];
+  return {
+    ...network,
+    deployedContracts: deployment?.deployedContracts || [],
+  };
+});

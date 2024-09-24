@@ -1,0 +1,964 @@
+{
+  "10": {
+    "networkName": "optimism",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x5BCe28f10a93C9B07A2e556fB039BCD23148217A"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0xeC5D4172DA5B15587dB2b955D7f5aa8C1c8ae496"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0x9B703ef7235b48c8E679510f9960cC5CfACe70B6"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0x6eFcDd84dA8D3AE2b8b1fa352ed72d150164dc17"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0x715bDF3d4989fABe0506d37761C0EE13c908E9Fb"
+      }
+    ]
+  },
+  "56": {
+    "networkName": "bsc",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x179BB6Dc7c41ca42101Af158508D64cbD3956CCc"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0xDfc13B60d8562679AF49E44BCEea98D7357E1Ab3"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0x59a2003574Bb327935BB32d87937B788E158D997"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0xd5716dFB95b4A51D9Af3F416B2928260407A6ded"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0x715bDF3d4989fABe0506d37761C0EE13c908E9Fb"
+      }
+    ]
+  },
+  "82": {
+    "networkName": "meter",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x262EaED1BeB7bEDB62B58ce8B78286E67F838EFD"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0xf3048723631e35D900F192e71A1FdEa112d26513"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x21138Be797394a16b3FeC8f038Ad5b9e7033b110"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x7dC17f005BaCd7B1129D5107cF537445e2dD0440"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x8cDd9C67Aa0264E45eAAF6d7244d63564B6Aa1bD"
+      }
+    ]
+  },
+  "100": {
+    "networkName": "gnosis",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0x715bDF3d4989fABe0506d37761C0EE13c908E9Fb"
+      }
+    ]
+  },
+  "122": {
+    "networkName": "fuse",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x7A68139a1fb5bcFee55BAabcf14c73813CF6B972"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x03E41dEc17D3aBC60A3D6c6cF7D8b8E20EA3BE20"
+      }
+    ]
+  },
+  "137": {
+    "networkName": "polygon",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x0C063229A533E363bdCa6d43741A4ed326D8Fb3e"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x56F091Df2e7e10A6308a447F7DB5aAd9C93e4A0A"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x1D459A0564281500541eC8E3B91a16917dFCf332"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0xaeDC09915E2Ce67BF74896A3b13b1632F56bA450"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0x0c518Fc93cC5d06D7807109046Be0b78fd5AB554"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0x715bDF3d4989fABe0506d37761C0EE13c908E9Fb"
+      }
+    ]
+  },
+  "169": {
+    "networkName": "manta",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0xaf46D6f651d3F0FF9Efefdb8C7c2b8611A6160Cb"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0xC7255b600fA91576bBf6F5f73AEE157B50f8209E"
+      }
+    ]
+  },
+  "204": {
+    "networkName": "opBNB",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x1D459A0564281500541eC8E3B91a16917dFCf332"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0xE61B3ea5A2809a85BbeabE60714025302cA75E17"
+      }
+    ]
+  },
+  "250": {
+    "networkName": "fantom",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x922db88F90D25545537A9FDddcdbB70F31c6991c"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0xeE51D39a2E58387543E51A7A9Ca4cAAA3283d9E5"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0x78c2A13c316CFa14232EE4930e017d5148a975E3"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0x04C306B583046411c8eD31Abc2728a9ce50740E8"
+      }
+    ]
+  },
+  "324": {
+    "networkName": "zksync",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x826E71f973D0D2Fc9A9ad4Df84E3848d17C3ed44"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0xb9417bC763aEd73dc96fcCB2C837Cb9aaFDdd93E"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x89c723FF5B65571bB6760C3dC2e2d4883B491671"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x846195418aC34bE8D7F36A696bd500985E297A82"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x1c0dC70ce17E90f927d430058891aD74e47B3E44"
+      }
+    ]
+  },
+  "592": {
+    "networkName": "astar",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x95fC7DCd383E8e89d42bAC66e22704276EfA9E0c"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x53413Fd712AbB0A67092b43c92A907B0aE1C561c"
+      }
+    ]
+  },
+  "1088": {
+    "networkName": "metis",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x58Ec28258Ef764B6A6425b2f24faF8Ad7416a476"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x92915a2D242684FFe21263320d476c1192e4ca98"
+      }
+    ]
+  },
+  "1101": {
+    "networkName": "zkEVM",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x8919eBCba6C8aBAB34A341fA0B3BA35fE3589dB2"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0xFfA4f853D906c18836aB7b27100582F37c199B8e"
+      }
+    ]
+  },
+  "1116": {
+    "networkName": "coreDao",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x7A68139a1fb5bcFee55BAabcf14c73813CF6B972"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x65fae7179e758142AAdB9302Ec8c2E73CD573F09"
+      }
+    ]
+  },
+  "1284": {
+    "networkName": "moonbeam",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x466abF5Bb4aA251ae707bDa2e9a2913732d77Dc3"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x933cFF0170CbE06da91ce834F5021d9a7E680D6a"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0x1D459A0564281500541eC8E3B91a16917dFCf332"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0x93E084699C5155723035d145f91dd1Dd703c90F1"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x715bdf3d4989fabe0506d37761c0ee13c908e9fb"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0xedEF6BfF33A5d3E8dd3F3C1eD11Fd7bedC5f3bE3"
+      }
+    ]
+  },
+  "1285": {
+    "networkName": "moonriver",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0xeE51D39a2E58387543E51A7A9Ca4cAAA3283d9E5"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x9951a4Ac7450A4BD4aEb8d4F0D414289Bd235A60"
+      }
+    ]
+  },
+  "1559": {
+    "networkName": "tenet",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0xe01247c559cb0aE014ccC988Ec047B1BCDC4d5b2"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x9951a4Ac7450A4BD4aEb8d4F0D414289Bd235A60"
+      }
+    ]
+  },
+  "2222": {
+    "networkName": "kava",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0xeC5D4172DA5B15587dB2b955D7f5aa8C1c8ae496"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x92D5dF6Ca8e19E80e453DBBb9Da3cfF704dc03bC"
+      }
+    ]
+  },
+  "5000": {
+    "networkName": "mantle",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x28B7ED4A2eD929086cd2e42049bE1cA2e74210aE"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0xe7491D97B275dBa973dCE4c9f5814F75a363695d"
+      }
+    ]
+  },
+  "7700": {
+    "networkName": "canto",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0xcf691a83D5e56831f5a170AA381FF8FF00627595"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x933cFF0170CbE06da91ce834F5021d9a7E680D6a"
+      }
+    ]
+  },
+  "8217": {
+    "networkName": "klaytn",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0xe01247c559cb0aE014ccC988Ec047B1BCDC4d5b2"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x0C063229A533E363bdCa6d43741A4ed326D8Fb3e"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0x3364C83CAA21A79Bd1305772C1ef71B534160cC8"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0x23622D4d0896c82fBEA71065977D50c48d2aDBAa"
+      }
+    ]
+  },
+  "8453": {
+    "networkName": "base",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x15A804f4DddD291d5f028AcfDBce787B9151763A"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x239dd39Cd84306E2902B4b8492a6Da29b5082Bc1"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0xB8614008D759A299cc9498DC6D8f3CD1705d2bA0"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0x9664A4158C489a438Dc1a86e4342e22c9F0034e6"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0x715bDF3d4989fABe0506d37761C0EE13c908E9Fb"
+      }
+    ]
+  },
+  "34443": {
+    "networkName": "mode",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      }
+    ]
+  },
+  "42161": {
+    "networkName": "arbitrum",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x17dcdF9F0A378612041f83452e3DFdf7D97AAD0e"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0xA698B510cE2A3ED439d93E3e2C79a9A87782164f"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x315e048FBecaeB9A4e14D445CC6d821f66734B9B"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0x59e7901d31E140A5a9522FC33A261d287C7Ba137"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0x42F791A857947D1815bCdF7de07a20f0cDBAB4Dc"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0x715bDF3d4989fABe0506d37761C0EE13c908E9Fb"
+      }
+    ]
+  },
+  "42170": {
+    "networkName": "arbitrum-nova",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0xeC5D4172DA5B15587dB2b955D7f5aa8C1c8ae496"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x933cFF0170CbE06da91ce834F5021d9a7E680D6a"
+      }
+    ]
+  },
+  "42220": {
+    "networkName": "celo",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x8919eBCba6C8aBAB34A341fA0B3BA35fE3589dB2"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x933cFF0170CbE06da91ce834F5021d9a7E680D6a"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0x46a4427A80119bA86405a235c397F40a050Be578"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0xae78Ec6Bb6a862842203905b6b98aDd6d446F500"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0x715bDF3d4989fABe0506d37761C0EE13c908E9Fb"
+      }
+    ]
+  },
+  "43114": {
+    "networkName": "avalanche",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x40E0E5A9736a568581a4F48Edc215271A7699a3f"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x1D459A0564281500541eC8E3B91a16917dFCf332"
+      },
+      {
+        "name": "Wormhole - Mintly ERC721",
+        "address": "0x8Be0ef47A526C3914E5F602816726151661a6216"
+      },
+      {
+        "name": "Wormhole - Mintly ERC20",
+        "address": "0x7432C2e93EE5E0904F9A728B16db4E4922e6D60f"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0x715bDF3d4989fABe0506d37761C0EE13c908E9Fb"
+      }
+    ]
+  },
+  "59144": {
+    "networkName": "linea",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x7F37Bd4bCe80Bf9Cd2eBbfd646C4E9B03cf29281"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x7510c328E1104A1aE94c88B621432AbB147920c6"
+      }
+    ]
+  },
+  "81457": {
+    "networkName": "blast",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      }
+    ]
+  },
+  "534352": {
+    "networkName": "scroll",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0xC65EF76aDb3Ed820e6553ac3f15D8DD626E52c1f"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0xFfA4f853D906c18836aB7b27100582F37c199B8e"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC721",
+        "address": "0x744f2b01846d05Fbd1694d36C7d89077B24c3Ea3"
+      },
+      {
+        "name": "Hyperlane - Etherway ERC20",
+        "address": "0x715bDF3d4989fABe0506d37761C0EE13c908E9Fb"
+      }
+    ]
+  },
+  "7777777": {
+    "networkName": "zora",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x338a21223913EB05790f5A6d54A518f26C6ed199"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x3C0A6CBc4F3b5a7B0eBf04709EBE173C856B6595"
+      }
+    ]
+  },
+  "1313161554": {
+    "networkName": "aurora",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x9951a4Ac7450A4BD4aEb8d4F0D414289Bd235A60"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0x3C0A6CBc4F3b5a7B0eBf04709EBE173C856B6595"
+      }
+    ]
+  },
+  "1380012617": {
+    "networkName": "rarible",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      }
+    ]
+  },
+  "1666600000": {
+    "networkName": "harmony",
+    "deployedContracts": [
+      {
+        "name": "Layerzero v2 - Etherway ONFT",
+        "address": "0x4f4f540AB854518fc37DEA8084BB9e2EE0Ba1ac8"
+      },
+      {
+        "name": "Layerzero v2 - Etherway OFT",
+        "address": "0x89BAfaD9B675973F374EE541634afb9242d65Ffc"
+      },
+      {
+        "name": "Layerzero v1 - Mintly ONFT ",
+        "address": "0x43B66C8a6f5D337b3890f46908e7F6DfDB5e65FA"
+      },
+      {
+        "name": "Layerzero v1- Mintly OFT",
+        "address": "0x286e1A8d6c0c86ba855f0ceB5b70388136b66939"
+      },
+      {
+        "name": "Layerzero v1- Mintly Gas Refuel",
+        "address": "0xB4FaD92708d2d73f14B34A47CA43a2794922cAcc"
+      }
+    ]
+  }
+}
