@@ -59,25 +59,44 @@ export const networks = [
     iconUrl: "/chain-icons/base.svg",
   },
   {
-    ...linea,
-    iconUrl: "/chain-icons/linea.svg",
-  },
-
-  {
     ...optimism,
     iconUrl: "/chain-icons/optimism.svg",
+  },
+  {
+    ...blast,
+    iconUrl: "/chain-icons/blast.webp",
+  },
+  {
+    ...scroll,
+    iconUrl: "/chain-icons/scroll.svg",
   },
   {
     ...zkSync,
     iconUrl: "/chain-icons/zksync.svg",
   },
   {
-    ...polygon,
-    iconUrl: "/chain-icons/polygon.svg",
+    ...mantle,
+    iconUrl: "/chain-icons/mantle.svg",
   },
   {
-    ...polygonZkEvm,
-    iconUrl: "/chain-icons/polygon-zkevm.svg",
+    ...linea,
+    iconUrl: "/chain-icons/linea.svg",
+  },
+  {
+    ...mode,
+    iconUrl: "/chain-icons/mode.svg",
+  },
+  {
+    ...manta,
+    iconUrl: "/chain-icons/manta.svg",
+  },
+  {
+    ...metis,
+    iconUrl: "/chain-icons/metis.svg",
+  },
+  {
+    ...polygon,
+    iconUrl: "/chain-icons/polygon.svg",
   },
   {
     ...bsc,
@@ -88,14 +107,13 @@ export const networks = [
     iconUrl: "/chain-icons/zora.svg",
   },
   {
-    ...mantle,
-    iconUrl: "/chain-icons/mantle.svg",
+    ...polygonZkEvm,
+    iconUrl: "/chain-icons/polygon-zkevm.svg",
   },
   {
-    ...metis,
-    iconUrl: "/chain-icons/metis.svg",
+    ...opBNB,
+    iconUrl: "/chain-icons/opbnb.svg",
   },
-
   {
     ...canto,
     iconUrl: "/chain-icons/canto.svg",
@@ -113,24 +131,16 @@ export const networks = [
     iconUrl: "/chain-icons/fantom.svg",
   },
   {
-    ...moonbeam,
-    iconUrl: "/chain-icons/moonbeam.svg",
-  },
-  {
     ...avalanche,
     iconUrl: "/chain-icons/avalanche.svg",
   },
   {
+    ...moonbeam,
+    iconUrl: "/chain-icons/moonbeam.svg",
+  },
+  {
     ...moonriver,
     iconUrl: "/chain-icons/moonriver.svg",
-  },
-  {
-    ...opBNB,
-    iconUrl: "/chain-icons/opbnb.svg",
-  },
-  {
-    ...scroll,
-    iconUrl: "/chain-icons/scroll.svg",
   },
   {
     ...arbitrumNova,
@@ -152,10 +162,7 @@ export const networks = [
     ...klaytn,
     iconUrl: "/chain-icons/klaytn.svg",
   },
-  {
-    ...manta,
-    iconUrl: "/chain-icons/manta.svg",
-  },
+
   {
     ...coreDao,
     iconUrl: "/chain-icons/coredao.svg",
@@ -176,17 +183,10 @@ export const networks = [
     ...pgn,
     iconUrl: "/chain-icons/pgn.svg",
   },
-  {
-    ...blast,
-    iconUrl: "/chain-icons/blast.svg",
-  },
+
   {
     ...gnosis,
     iconUrl: "/chain-icons/gnosis.svg",
-  },
-  {
-    ...mode,
-    iconUrl: "/chain-icons/mode.svg",
   },
 ].map((network) => {
   const deployment = Object.entries(deployments).find(
