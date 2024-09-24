@@ -28,5 +28,5 @@ export const NetworkIcons: React.FC<NetworkIconsProps> = ({
     );
   }
 
-  return <AvatarCircles avatarUrls={networkIcons} numPeople={26} />;
+  return <AvatarCircles avatarUrls={networkIcons} numPeople={28} />;
 };

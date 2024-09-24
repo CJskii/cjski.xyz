@@ -4,13 +4,6 @@ import { NextPage } from "next/types";
 import React from "react";
 import { Typography } from "@/components/ui/typography";
 import Link from "next/link";
-import { GitFork, StarIcon } from "lucide-react";
-import {
-  DiscordIcon,
-  GitHubIcon,
-  TelegramIcon,
-  XIcon,
-} from "@/assets/icons/social";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import {
@@ -21,6 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { NetworkIcons } from "@/components/contracts/network-icons";
 
 const HomePage: NextPage = () => {
   return (
@@ -58,7 +52,7 @@ const HomePage: NextPage = () => {
             <CardDescription>Deployed on mainnet</CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <NetworkIcons display={"6"} />
           </CardContent>
           <CardFooter>
             <Typography variant="muted" className="">
@@ -95,6 +89,7 @@ const HomePage: NextPage = () => {
           </CardFooter>
         </Card>
       </div>
+      <NetworkIcons display={"all"} />
 
       <div className="flex flex-col justify-center items-center gap-4 w-3/5 px-8 py-8">
         Cards with pinned repos from github
