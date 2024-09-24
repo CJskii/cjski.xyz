@@ -3,18 +3,9 @@ import { Button } from "@/components/ui/button";
 import { NextPage } from "next/types";
 import React from "react";
 import { Typography } from "@/components/ui/typography";
-import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { NetworkIcons } from "@/components/contracts/network-icons";
+import { CardWrapper } from "@/components/card";
 
 const HomePage: NextPage = () => {
   return (
@@ -24,7 +15,7 @@ const HomePage: NextPage = () => {
       justify="start"
       align="center"
     >
-      <div className="px-8 flex justify-center items-center gap-40 w-3/5">
+      <div className="px-8 flex flex-col-reverse lg:flex-row justify-center items-center gap-16">
         <div>
           <Typography variant="h2" className="text-left">
             Hey there! 👋
@@ -45,58 +36,43 @@ const HomePage: NextPage = () => {
         </Avatar>
       </div>
 
-      <div className="flex justify-center items-start gap-4 flex-grow w-3/5 px-8 py-20">
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle className="tracking-wide">Smart contracts</CardTitle>
-            <CardDescription>Deployed on mainnet</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <NetworkIcons display={"6"} />
-          </CardContent>
-          <CardFooter>
-            <Typography variant="muted" className="">
-              <Link href="/contracts">View all deployments</Link>
-            </Typography>
-          </CardFooter>
-        </Card>
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle className="tracking-wide">Projects</CardTitle>
-            <CardDescription>Deployed on mainnet</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Card Content</p>
-          </CardContent>
-          <CardFooter>
-            <Typography variant="muted" className="">
-              <Link href="/projects">View all projects</Link>
-            </Typography>
-          </CardFooter>
-        </Card>
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle>Latest Commit</CardTitle>
-            <CardDescription>Find me here</CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col justify-center items-start">
-            Repo Name
-          </CardContent>
-          <CardFooter>
-            <Typography variant="muted" className="">
-              <Link href="/projects">{"when"}</Link>
-            </Typography>
-          </CardFooter>
-        </Card>
-      </div>
-      <NetworkIcons display={"all"} />
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 flex-grow px-8 py-20 w-full">
+        <CardWrapper
+          title="Smart contracts"
+          description="Deployed on mainnet"
+          footerText="View all deployments"
+          href="/contracts"
+          footer={true}
+        >
+          <NetworkIcons display={"6"} />
+        </CardWrapper>
 
-      <div className="flex flex-col justify-center items-center gap-4 w-3/5 px-8 py-8">
+        <CardWrapper
+          title="Projects"
+          description="Deployed on mainnet"
+          footerText="View all projects"
+          href="/projects"
+          footer={true}
+        >
+          <p>Card Content</p>
+        </CardWrapper>
+
+        <CardWrapper
+          title="Latest Commit"
+          description="Find me here"
+          footerText="when"
+          footer={true}
+        >
+          <p>Repo Name</p>
+        </CardWrapper>
+      </div>
+
+      <div className="flex flex-col justify-center items-center gap-4 p-8">
         Cards with pinned repos from github
       </div>
 
-      <div className="flex flex-col justify-center items-center gap-4 w-3/5 px-8 py-8">
-        <Typography variant="h2">
+      <div className="flex flex-col justify-center items-center gap-4 p-8">
+        <Typography variant="h2" className="text-center">
           Looking for a dev or want to have chat?
         </Typography>
         <Button size="lg">Contact me</Button>

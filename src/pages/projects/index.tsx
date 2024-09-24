@@ -42,7 +42,7 @@ const ProjectsPage: NextPage<Props> = ({}) => {
       <Typography variant="h1" className="text-left">
         Projects
       </Typography>
-      <div className="grid w-3/5 p-4 gap-8 py-20">
+      <div className="grid lg:w-3/5 p-4 gap-8 py-20">
         {projectsData.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
