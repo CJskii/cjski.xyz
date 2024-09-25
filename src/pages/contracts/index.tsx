@@ -82,6 +82,13 @@ const ContractsPage: NextPage = () => {
         Mainnet deployments
       </Typography>
 
+      <Typography
+        variant="paragraph"
+        className="text-left text-muted-foreground"
+      >
+        Total contracts deployed: {transformedData.length}
+      </Typography>
+
       <div className="container mx-auto py-10">
         <DataTable columns={columns} data={transformedData} />
       </div>
