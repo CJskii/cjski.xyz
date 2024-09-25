@@ -86,7 +86,10 @@ const ContractsPage: NextPage = () => {
         variant="paragraph"
         className="text-left text-muted-foreground"
       >
-        Total contracts deployed: {transformedData.length}
+        Total contracts deployed: {transformedData.length} 💪
+      </Typography>
+      <Typography variant="muted" className="text-left">
+        Still counting 🚀
       </Typography>
 
       <div className="container mx-auto py-10">
