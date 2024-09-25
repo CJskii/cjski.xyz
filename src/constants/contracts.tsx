@@ -52,141 +52,141 @@ export interface Network {
 export const networks = [
   {
     ...arbitrum,
-    iconUrl: "/chain-icons/arbitrum.svg",
+    iconUrl: "/static/chain-icons/arbitrum.svg",
   },
   {
     ...base,
-    iconUrl: "/chain-icons/base.svg",
+    iconUrl: "/static/chain-icons/base.svg",
   },
   {
     ...optimism,
-    iconUrl: "/chain-icons/optimism.svg",
+    iconUrl: "/static/chain-icons/optimism.svg",
   },
   {
     ...blast,
-    iconUrl: "/chain-icons/blast.webp",
+    iconUrl: "/static/chain-icons/blast.webp",
   },
   {
     ...scroll,
-    iconUrl: "/chain-icons/scroll.svg",
+    iconUrl: "/static/chain-icons/scroll.svg",
   },
   {
     ...zkSync,
-    iconUrl: "/chain-icons/zksync.svg",
+    iconUrl: "/static/chain-icons/zksync.svg",
   },
   {
     ...mantle,
-    iconUrl: "/chain-icons/mantle.svg",
+    iconUrl: "/static/chain-icons/mantle.svg",
   },
   {
     ...linea,
-    iconUrl: "/chain-icons/linea.svg",
+    iconUrl: "/static/chain-icons/linea.svg",
   },
   {
     ...mode,
-    iconUrl: "/chain-icons/mode.svg",
+    iconUrl: "/static/chain-icons/mode.svg",
   },
   {
     ...manta,
-    iconUrl: "/chain-icons/manta.svg",
+    iconUrl: "/static/chain-icons/manta.svg",
   },
   {
     ...metis,
-    iconUrl: "/chain-icons/metis.svg",
+    iconUrl: "/static/chain-icons/metis.svg",
   },
   {
     ...polygon,
-    iconUrl: "/chain-icons/polygon.svg",
+    iconUrl: "/static/chain-icons/polygon.svg",
   },
   {
     ...bsc,
-    iconUrl: "/chain-icons/bsc.svg",
+    iconUrl: "/static/chain-icons/bsc.svg",
   },
   {
     ...zora,
-    iconUrl: "/chain-icons/zora.svg",
+    iconUrl: "/static/chain-icons/zora.svg",
   },
   {
     ...polygonZkEvm,
-    iconUrl: "/chain-icons/polygon-zkevm.svg",
+    iconUrl: "/static/chain-icons/polygon-zkevm.svg",
   },
   {
     ...opBNB,
-    iconUrl: "/chain-icons/opbnb.svg",
+    iconUrl: "/static/chain-icons/opbnb.svg",
   },
   {
     ...canto,
-    iconUrl: "/chain-icons/canto.svg",
+    iconUrl: "/static/chain-icons/canto.svg",
   },
   {
     ...harmonyOne,
-    iconUrl: "/chain-icons/harmony.svg",
+    iconUrl: "/static/chain-icons/harmony.svg",
   },
   {
     ...celo,
-    iconUrl: "/chain-icons/celo.svg",
+    iconUrl: "/static/chain-icons/celo.svg",
   },
   {
     ...fantom,
-    iconUrl: "/chain-icons/fantom.svg",
+    iconUrl: "/static/chain-icons/fantom.svg",
   },
   {
     ...avalanche,
-    iconUrl: "/chain-icons/avalanche.svg",
+    iconUrl: "/static/chain-icons/avalanche.svg",
   },
   {
     ...moonbeam,
-    iconUrl: "/chain-icons/moonbeam.svg",
+    iconUrl: "/static/chain-icons/moonbeam.svg",
   },
   {
     ...moonriver,
-    iconUrl: "/chain-icons/moonriver.svg",
+    iconUrl: "/static/chain-icons/moonriver.svg",
   },
   {
     ...arbitrumNova,
-    iconUrl: "/chain-icons/arb-nova.svg",
+    iconUrl: "/static/chain-icons/arb-nova.svg",
   },
   {
     ...fuse,
-    iconUrl: "/chain-icons/fuse.svg",
+    iconUrl: "/static/chain-icons/fuse.svg",
   },
   {
     ...meter,
-    iconUrl: "/chain-icons/meter.svg",
+    iconUrl: "/static/chain-icons/meter.svg",
   },
   {
     ...aurora,
-    iconUrl: "/chain-icons/aurora.svg",
+    iconUrl: "/static/chain-icons/aurora.svg",
   },
   {
     ...klaytn,
-    iconUrl: "/chain-icons/klaytn.svg",
+    iconUrl: "/static/chain-icons/klaytn.svg",
   },
 
   {
     ...coreDao,
-    iconUrl: "/chain-icons/coredao.svg",
+    iconUrl: "/static/chain-icons/coredao.svg",
   },
   {
     ...tenet,
-    iconUrl: "/chain-icons/tenet.svg",
+    iconUrl: "/static/chain-icons/tenet.svg",
   },
   {
     ...astar,
-    iconUrl: "/chain-icons/astar.svg",
+    iconUrl: "/static/chain-icons/astar.svg",
   },
   {
     ...kava,
-    iconUrl: "/chain-icons/kava.svg",
+    iconUrl: "/static/chain-icons/kava.svg",
   },
   {
     ...pgn,
-    iconUrl: "/chain-icons/pgn.svg",
+    iconUrl: "/static/chain-icons/pgn.svg",
   },
 
   {
     ...gnosis,
-    iconUrl: "/chain-icons/gnosis.svg",
+    iconUrl: "/static/chain-icons/gnosis.svg",
   },
 ].map((network) => {
   const deployment = Object.entries(deployments).find(
