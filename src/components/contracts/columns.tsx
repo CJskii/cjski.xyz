@@ -1,6 +1,8 @@
-import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 import Image from "next/image";
+
+import { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown } from "lucide-react";
 
 export type Contract = {
   chainId: string;
@@ -15,11 +17,31 @@ export type Contract = {
 export const columns: ColumnDef<Contract>[] = [
   {
     accessorKey: "chainId",
-    header: "Chain ID",
+    header: ({ column }) => {
+      return (
+        <div
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="flex justify-start items-center cursor-pointer hover:underline hover:font-semibold"
+        >
+          Chain ID
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </div>
+      );
+    },
   },
   {
     accessorKey: "chain",
-    header: "Chain",
+    header: ({ column }) => {
+      return (
+        <div
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="flex justify-start items-center cursor-pointer hover:underline hover:font-semibold"
+        >
+          Chain Name
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </div>
+      );
+    },
     cell: ({ row }) => (
       <div className="flex items-center">
         <Image
@@ -35,7 +57,17 @@ export const columns: ColumnDef<Contract>[] = [
   },
   {
     accessorKey: "address",
-    header: "Contract Address",
+    header: ({ column }) => {
+      return (
+        <div
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="flex justify-start items-center cursor-pointer hover:underline hover:font-semibold"
+        >
+          Contract Address
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </div>
+      );
+    },
     cell: ({ row }) => (
       <Link
         href={row.original.explorerUrl || "#"}
@@ -49,6 +81,16 @@ export const columns: ColumnDef<Contract>[] = [
   },
   {
     accessorKey: "contractName",
-    header: "Contract Name",
+    header: ({ column }) => {
+      return (
+        <div
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="flex justify-start items-center cursor-pointer hover:underline hover:font-semibold"
+        >
+          Contract Name
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </div>
+      );
+    },
   },
 ];
