@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DeployedContractsCard,
   LatestCommitCard,
-  ProjectsCard,
+  TransactionCard,
 } from "@/components/landing-page/cards";
 
 const HomePage: NextPage = () => {
@@ -41,7 +41,7 @@ const HomePage: NextPage = () => {
 
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 flex-grow px-8 py-20 w-full">
         <DeployedContractsCard />
-        <ProjectsCard />
+        <TransactionCard />
         <LatestCommitCard />
       </div>
 

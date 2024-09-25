@@ -29,24 +29,32 @@ export const CardWrapper: React.FC<CardWrapperProps> = ({
   footer,
   icon,
 }) => {
+  const isExternalLink =
+    href?.startsWith("http://") || href?.startsWith("https://");
+
   return (
     <Card className="w-full flex flex-col justify-between">
-      <CardHeader className="flex-row justify-between">
+      <CardHeader className="flex-row justify-between m-0">
         <div>
           <CardTitle className="tracking-wide flex justify-between items-start">
             {title}
           </CardTitle>
           <CardDescription>{description}</CardDescription>
         </div>
-
-        {icon}
+        <span>{icon}</span>
       </CardHeader>
       <CardContent className="flex-grow">{children}</CardContent>
       {footer && (
         <CardFooter>
           {href ? (
             <Typography variant="muted" className="hover:underline">
-              <Link href={href}>{footerText}</Link>
+              {isExternalLink ? (
+                <Link href={href} target="_blank" rel="noopener noreferrer">
+                  {footerText}
+                </Link>
+              ) : (
+                <Link href={href}>{footerText}</Link>
+              )}
             </Typography>
           ) : (
             <Typography variant="muted" className="">
