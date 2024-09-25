@@ -22,7 +22,7 @@ const AvatarCircles = ({
       {avatarUrls.map((url, index) => (
         <Image
           key={index}
-          className="h-10 w-10 rounded-full border-2 border-accent bg-background"
+          className="h-8 w-8 rounded-full border-2 border-accent bg-background"
           src={url}
           width={40}
           height={40}
@@ -31,8 +31,8 @@ const AvatarCircles = ({
       ))}
       {numPeople === 0 ? null : (
         <Link
-          className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent bg-primary text-primary-foreground text-center text-xs font-medium"
-          href="/deployments"
+          className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-accent bg-primary text-primary-foreground text-center text-xs font-medium"
+          href="/contracts"
         >
           +{numPeople}
         </Link>
