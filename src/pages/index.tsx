@@ -8,7 +8,7 @@ import {
   DeployedContractsCard,
   LatestCommitCard,
   TransactionCard,
-} from "@/components/landing-page/cards";
+} from "@/components/landing-page/index";
 
 const HomePage: NextPage = () => {
   return (
