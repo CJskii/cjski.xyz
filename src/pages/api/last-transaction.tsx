@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Moralis from "moralis";
+import { initializeMoralis } from "../../lib/moralis";
 
 let transactionCache: {
   [key: string]: { data: any; expiry: number };
@@ -13,6 +14,8 @@ export default async function handler(
 ) {
   try {
     const cacheKey = "lastTransaction";
+
+    initializeMoralis();
 
     if (
       transactionCache[cacheKey] &&
