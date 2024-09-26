@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "title": "Etherway",
+    "description": "Etherway is a cross-chain platform designed specifically for airdrop farmers, enabling seamless cross-chain transactions, token swaps, and gas refueling across multiple mainnet chains. The platform supports major blockchain ecosystems and offers live performance tracking with a leaderboard for users to compete for rewards and earn incentives based on their interactions.",
+    "githubLink": "https://github.com/CJskii/etherway-ui",
+    "demoLink": "https://www.etherway.io/"
+  },
+  {
+    "id": 2,
+    "title": "Mintly",
+    "description": "OmniMinter v1 is a multi-chain NFT and token minting platform designed to operate across 31 mainnet blockchain ecosystems. This version includes LayerZero V1 contracts, featuring OFT (Omnichain Fungible Tokens), ONFT (Omnichain Non-Fungible Tokens), gas refuel capabilities, and cross-chain support via Wormhole for both ERC20 and ERC721 tokens.",
+    "githubLink": "https://github.com/CJskii/omni-minter-v1",
+    "demoLink": "https://omnichain-minter.vercel.app/"
+  },
+  {
+    "id": 3,
+    "title": "Airdrop Marketplace",
+    "description": "Airdrop Marketplace is a product built for Etherway to build a single hub for airdrop farmers and degens to access all the up and coming airdrops while earning due to its unique staking mechanism with the native staking pools by the Morph blockchain.",
+    "githubLink": "https://github.com/CJskii/airdrop-marketplace",
+    "demoLink": "https://airdrop-marketplace.vercel.app"
+  },
+  {
+    "id": 4,
+    "title": "NextJS Web3 Starter Template",
+    "description": "A Next.js Web3 project template, powered by TypeScript, RainbowKit, Wagmi, Shadcn, and TailwindCSS. This template is designed to streamline the creation of Web3 applications with SIWE (Sign-In With Ethereum) authentication, a theme toggler, and modern design patterns.",
+    "githubLink": "https://github.com/CJskii/next-web3-template",
+    "demoLink": "https://next-web3-template-umber.vercel.app/"
+  },
+  {
+    "id": 5,
+    "title": "Dynamic Metadata API",
+    "description": "A dynamic API serving unique metadata for the NFT collection. Built with Next.js and hosted on Vercel, this API ensures consistent metadata delivery for each NFT in the collection, leveraging IPFS for decentralized media storage.",
+    "githubLink": "https://github.com/CJskii/metadata-api",
+    "demoLink": "https://mintly-api.vercel.app"
+  },
+  {
+    "id": 6,
+    "title": "Transaction Explorer",
+    "description": "The Transactions App is a web application built with Next.js and TypeScript. It allows users to search for Ethereum wallet addresses and transaction hashes. The app provides detailed information about the queried addresses and transactions, enhancing the user experience with a clean and professional interface. Supported networks: Ethereum, Polygon",
+    "githubLink": "https://github.com/CJskii/transactions-app",
+    "demoLink": "https://transactions-app-seven.vercel.app"
+  },
+  {
+    "id": 7,
+    "title": "Bug Bounty Platform UI",
+    "description": "A bug bounty platform UI built with Next.js, TypeScript, and TailwindCSS. This project is designed to provide a clean and user-friendly interface for bug bounty hunters and security researchers to report vulnerabilities and earn rewards for their findings.",
+    "githubLink": "https://github.com/CJskii/bug-bounty-ui",
+    "demoLink": "https://bug-bounty-ui-coral.vercel.app"
+  },
+  {
+    "id": 8,
+    "title": "Where's Waldo Photo Tagging App",
+    "description": "Photo-Tagging-App is a modern and sleek photo tagging application inspired by the popular Where's Waldo game. It is built with TypeScript, Tailwind CSS, and Firebase,",
+    "githubLink": "https://github.com/CJskii/photo-tagging-app",
+    "demoLink": "https://waldo.cjski.xyz/"
+  },
+  {
+    "id": 9,
+    "title": "React Ecommerce Frontend",
+    "description": "A modern and sleek e-commerce frontend built with React and Tailwind CSS. This project features a responsive design, product filtering, and a shopping cart with dynamic item management.",
+    "githubLink": "https://github.com/CJskii/React-Shopping-Cart",
+    "demoLink": "https://cryptocave.cjski.xyz/"
+  },
+  {
+    "id": 10,
+    "title": "Memory Card Game",
+    "description": "A memory card game built with React and Tailwind CSS. This project features a responsive design, card shuffling, and a scoring system to track the player's progress.",
+    "githubLink": "https://github.com/CJskii/React-Memory-Card-A-Game-of-Recollection",
+    "demoLink": "https://memory.cjski.xyz/"
+  },
+  {
+    "id": 11,
+    "title": "CV Generator",
+    "description": "A modern and sleek CV generator built with React and Tailwind CSS. This project features a responsive design, dynamic form inputs, and a live preview of the generated CV with download.",
+    "githubLink": "https://github.com/CJskii/cv-application",
+    "demoLink": "https://cv.cjski.xyz/"
+  },
+  {
+    "id": 12,
+    "title": "Todo List App",
+    "description": "A modern and sleek todo list application built with React and Tailwind CSS. This project features a responsive design, task management, and a clean user interface.",
+    "githubLink": "https://github.com/CJskii/todo-app",
+    "demoLink": "https://todo.cjski.xyz/"
+  },
+  {
+    "id": 13,
+    "title": "Battleship Game",
+    "description": "Vanilla JavaScript Battleship game built with HTML, CSS, and JavaScript. This project features a responsive design, game logic, and a clean user interface.",
+    "githubLink": "https://github.com/CJskii/Battleship-game",
+    "demoLink": "https://battleship.cjski.xyz/"
+  },
+  {
+    "id": 14,
+    "title": "Weather App",
+    "description": "Weather application built with React and Tailwind CSS. This project features a responsive design, weather data fetching for your selected city, and a clean user interface.",
+    "githubLink": "https://github.com/CJskii/weather-app",
+    "demoLink": "https://weather.cjski.xyz/"
+  }
+]

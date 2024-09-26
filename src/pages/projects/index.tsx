@@ -2,32 +2,9 @@ import { PageLayout } from "@/components/page-layout";
 import { Typography } from "@/components/ui/typography";
 import { NextPage } from "next";
 import { ProjectCard } from "@/components/projects/project-card";
+import projectsData from "@/constants/project-data.json";
 
 interface Props {}
-
-const projectsData = [
-  {
-    id: 1,
-    title: "Project 1",
-    description: "description of the project",
-    githubLink: "",
-    demoLink: "",
-  },
-  {
-    id: 2,
-    title: "Project 2",
-    description: "description of the project",
-    githubLink: "",
-    demoLink: "",
-  },
-  {
-    id: 3,
-    title: "Project 3",
-    description: "description of the project",
-    githubLink: "",
-    demoLink: "",
-  },
-];
 
 const ProjectsPage: NextPage<Props> = ({}) => {
   return (
@@ -42,7 +19,7 @@ const ProjectsPage: NextPage<Props> = ({}) => {
       <Typography variant="h1" className="text-left">
         Projects
       </Typography>
-      <div className="grid lg:w-3/5 p-4 gap-8 py-20">
+      <div className="grid md:grid-cols-2  p-4 gap-8 py-20">
         {projectsData.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}

@@ -28,10 +28,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   demoLink = "",
 }) => {
   return (
-    <Card className="w-full">
+    <Card className="w-full flex flex-col justify-between">
       <CardHeader>
-        <CardTitle className="tracking-wide flex justify-between items-center">
-          {title}{" "}
+        <CardTitle className="flex justify-between items-center">
+          <Typography variant="h3" className="tracking-wide">
+            {title}{" "}
+          </Typography>
           <div className="flex justify-center items-center gap-2">
             <Button variant="ghost" size="icon">
               <Link href={githubLink}>
@@ -39,23 +41,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               </Link>
             </Button>
             <Button variant="ghost" size="icon">
-              <Link href={demoLink}>
+              <Link href={demoLink} target="_blank">
                 <Globe />
               </Link>
             </Button>
           </div>
         </CardTitle>
-        <CardDescription>{description}</CardDescription>
+        {/* <CardDescription>{description}</CardDescription> */}
       </CardHeader>
-      <CardContent>
-        <div className="flex flex-col justify-center items-center">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure neque
-          magnam autem minus veniam excepturi deserunt omnis. Soluta aspernatur
-          sed quisquam iure cupiditate repudiandae officiis error ab corrupti!
-          Fuga, corporis?
-        </div>
+      <CardContent className="flex-grow">
+        <Typography variant="small" className="mt-2 text-md">
+          {description}
+        </Typography>
       </CardContent>
-      <CardFooter className="flex justify-end">
+      {/* <CardFooter className="flex justify-end">
         <Button variant="ghost" size="sm">
           <Link href={`/projects/${id}`}>
             <Typography
@@ -66,7 +65,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </Typography>
           </Link>
         </Button>
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   );
 };
