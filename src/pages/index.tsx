@@ -10,6 +10,13 @@ import {
   TransactionCard,
 } from "@/components/landing-page/index";
 import { FeaturedRepos } from "@/components/landing-page/featured-repos";
+import { PulsatingButton } from "@/components/magicui/pulsating-button";
+import Link from "next/link";
+
+// TODO: Add crypto price ticker
+// TODO: Add downloadable resume
+// TODO: Add about me page
+// TODO: Add projects section
 
 const HomePage: NextPage = () => {
   return (
@@ -56,11 +63,31 @@ const HomePage: NextPage = () => {
         <FeaturedRepos />
       </div>
 
-      <div className="flex flex-col justify-center items-center gap-4 p-8">
+      <div className="flex flex-col justify-center items-center gap-6 p-8 bg-card rounded-lg">
         <Typography variant="h2" className="text-center">
-          Looking for a dev or want to have chat?
+          Let's work together or just have a chat! 🚀
         </Typography>
-        <Button size="lg">Contact me</Button>
+        <Typography
+          variant="lead"
+          className="text-center text-muted-foreground max-w-2xl text-lg"
+        >
+          Whether you have a project idea, need a developer for your team, or
+          simply want to talk about tech and Web3, I'm here to connect.
+        </Typography>
+        <Typography
+          variant="lead"
+          className="text-center text-muted-foreground text-lg"
+        >
+          Let's make something great together! 💲 💰
+        </Typography>
+
+        <Link href="https://cal.com/cjski" target="_blank">
+          <PulsatingButton className="mt-4 px-6 py-3 rounded-lg">
+            <Typography variant="small" className="font-medium">
+              📅 Book a call
+            </Typography>
+          </PulsatingButton>
+        </Link>
       </div>
     </PageLayout>
   );
