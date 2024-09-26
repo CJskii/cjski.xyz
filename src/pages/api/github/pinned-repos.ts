@@ -1,10 +1,22 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+let pinnedReposCache: {
+  data: any;
+  expiry: number;
+} | null = null;
+
+const CACHE_DURATION = 720 * 1000; // 12 minutes
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const GITHUB_ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
+
+  if (pinnedReposCache && Date.now() < pinnedReposCache.expiry) {
+    console.log("Serving pinned repositories from cache");
+    return res.status(200).json(pinnedReposCache.data);
+  }
 
   if (!GITHUB_ACCESS_TOKEN) {
     return res
@@ -13,28 +25,29 @@ export default async function handler(
   }
 
   const query = `
-  query {
-    user(login: "CJskii") {
-      pinnedItems(first: 6, types: REPOSITORY) {
-        nodes {
-          ... on Repository {
-            name
-            description
-            url
-            updatedAt
-            stargazerCount
-            forkCount
-            licenseInfo {
+    query {
+      user(login: "CJskii") {
+        pinnedItems(first: 6, types: REPOSITORY) {
+          nodes {
+            ... on Repository {
               name
-            }
-            primaryLanguage {
-              name
-              color
-            }
-            defaultBranchRef {
-              target {
-                ... on Commit {
-                  committedDate
+              description
+              url
+              updatedAt
+              stargazerCount
+              forkCount
+              licenseInfo {
+                name
+              }
+              primaryLanguage {
+                name
+                color
+              }
+              defaultBranchRef {
+                target {
+                  ... on Commit {
+                    committedDate
+                  }
                 }
               }
             }
@@ -42,8 +55,7 @@ export default async function handler(
         }
       }
     }
-  }
-`;
+  `;
 
   try {
     const response = await fetch("https://api.github.com/graphql", {
@@ -78,9 +90,14 @@ export default async function handler(
         : "#000000",
     }));
 
-    res.status(200).json({ pinnedRepos });
+    pinnedReposCache = {
+      data: { pinnedRepos },
+      expiry: Date.now() + CACHE_DURATION,
+    };
+
+    return res.status(200).json({ pinnedRepos });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Something went wrong" });
+    return res.status(500).json({ error: "Something went wrong" });
   }
 }
