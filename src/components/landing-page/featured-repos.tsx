@@ -24,7 +24,7 @@ export const FeaturedRepos: React.FC = () => {
   useEffect(() => {
     const fetchPinnedRepos = async () => {
       try {
-        const response = await fetch("/api/pinned-repos");
+        const response = await fetch("/api/github/pinned-repos");
         if (!response.ok) {
           throw new Error("Failed to fetch pinned repositories");
         }

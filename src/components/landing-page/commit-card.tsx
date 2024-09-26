@@ -25,7 +25,7 @@ export const LatestCommitCard: React.FC = () => {
   useEffect(() => {
     const fetchCommit = async () => {
       try {
-        const res = await fetch("/api/latest-commit");
+        const res = await fetch("/api/github/latest-commit");
         if (!res.ok) {
           throw new Error("Failed to fetch latest commit");
         }

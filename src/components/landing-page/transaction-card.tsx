@@ -36,7 +36,7 @@ export const TransactionCard: React.FC = () => {
   useEffect(() => {
     const fetchLastTransaction = async () => {
       try {
-        const res = await fetch("/api/last-transaction");
+        const res = await fetch("/api/moralis/last-transaction");
         if (!res.ok) {
           throw new Error("Failed to fetch latest transaction");
         }

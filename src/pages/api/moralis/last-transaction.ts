@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Moralis from "moralis";
-import { initializeMoralis } from "../../lib/moralis";
+import { initializeMoralis } from "../../../lib/moralis";
 
 let transactionCache: {
   [key: string]: { data: any; expiry: number };
