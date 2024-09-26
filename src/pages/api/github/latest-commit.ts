@@ -5,6 +5,8 @@ let commitCache: {
 } = {};
 
 const CACHE_DURATION = 720 * 1000; // 12 minutes
+const GITHUB_API_URL = "https://api.github.com/graphql";
+const GITHUB_ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,22 +20,69 @@ export default async function handler(
     return res.status(200).json(commitCache[cacheKey].data);
   }
 
+  if (!GITHUB_ACCESS_TOKEN) {
+    return res.status(500).json({ error: "GitHub Access Token is not set" });
+  }
+
+  const query = `
+    query ($username: String!) {
+      user(login: $username) {
+        repositories(first: 10, orderBy: { field: UPDATED_AT, direction: DESC }) {
+          nodes {
+            name
+            defaultBranchRef {
+              target {
+                ... on Commit {
+                  history(first: 1) {
+                    edges {
+                      node {
+                        message
+                        committedDate
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
   try {
-    const response = await fetch(
-      `https://api.github.com/users/${username}/events/public`
-    );
+    const response = await fetch(GITHUB_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${GITHUB_ACCESS_TOKEN}`,
+      },
+      body: JSON.stringify({
+        query,
+        variables: { username },
+      }),
+    });
 
-    const events = await response.json();
+    if (!response.ok) {
+      throw new Error("Failed to fetch the latest commit");
+    }
 
-    const pushEvent = events.find((event: any) => event.type === "PushEvent");
+    const data = await response.json();
 
-    if (pushEvent && pushEvent.payload.commits.length > 0) {
-      const latestCommit = pushEvent.payload.commits[0];
+    const repositories = data.data.user.repositories.nodes;
+    const latestRepo = repositories.find((repo: any) => repo.defaultBranchRef);
+    if (
+      latestRepo &&
+      latestRepo.defaultBranchRef.target.history.edges.length > 0
+    ) {
+      const latestCommit =
+        latestRepo.defaultBranchRef.target.history.edges[0].node;
       const commitData = {
         message: latestCommit.message,
-        date: pushEvent.created_at,
-        repo: pushEvent.repo.name,
-        url: `https://github.com/${pushEvent.repo.name}/commit/${latestCommit.sha}`,
+        date: latestCommit.committedDate,
+        repo: latestRepo.name,
+        url: latestCommit.url,
       };
 
       commitCache[cacheKey] = {
