@@ -1,4 +1,3 @@
-// pages/api/github-pinned-repos.ts
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

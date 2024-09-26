@@ -9,6 +9,7 @@ import {
   LatestCommitCard,
   TransactionCard,
 } from "@/components/landing-page/index";
+import { FeaturedRepos } from "@/components/landing-page/featured-repos";
 
 const HomePage: NextPage = () => {
   return (
@@ -45,8 +46,14 @@ const HomePage: NextPage = () => {
         <LatestCommitCard />
       </div>
 
-      <div className="flex flex-col justify-center items-center gap-4 p-8">
-        Cards with pinned repos from github
+      <div className="grid md:grid-cols-2 gap-4 flex-grow px-8 py-20 w-full">
+        <Typography
+          variant="h2"
+          className="text-center col-span-2 border-0 mb-4"
+        >
+          Featured Repositories
+        </Typography>
+        <FeaturedRepos />
       </div>
 
       <div className="flex flex-col justify-center items-center gap-4 p-8">
