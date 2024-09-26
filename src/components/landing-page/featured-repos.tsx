@@ -42,7 +42,7 @@ export const FeaturedRepos: React.FC = () => {
 
   if (loading)
     return (
-      <div className="grid grid-cols-2 col-span-2 gap-4">
+      <div className="grid md:grid-cols-2 col-span-2 gap-4">
         <CardWrapper
           title="Loading"
           description="Fetching featured repositories"
@@ -72,7 +72,7 @@ export const FeaturedRepos: React.FC = () => {
     );
 
   return (
-    <>
+    <div className="grid gap-4 md:grid-cols-2 col-span-2">
       {repos.map((repo: Repo) => (
         <GithubRepoCard
           key={repo.name}
@@ -84,6 +84,6 @@ export const FeaturedRepos: React.FC = () => {
           primaryLanguageColor={repo.primaryLanguageColor}
         />
       ))}
-    </>
+    </div>
   );
 };
