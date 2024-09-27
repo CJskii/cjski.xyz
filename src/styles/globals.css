@@ -122,3 +122,22 @@ a {
 .bg-gradient {
   @apply bg-gradient-to-b from-secondary to-primary;
 }
+
+::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2c2c2c; /* Track color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4c4c4c; /* Scrollbar thumb color */
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #606060; /* Scrollbar thumb hover color */
+}
