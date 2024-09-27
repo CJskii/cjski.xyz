@@ -11,8 +11,8 @@ interface HeadComponentProps {
 export const HeadComponent: React.FC<HeadComponentProps> = ({
   title,
   description,
-  image,
-  twitterHandle,
+  image = "/static/meta_image.png",
+  twitterHandle = "@cjski_web3",
 }) => {
   return (
     <Head>
@@ -30,10 +30,10 @@ export const HeadComponent: React.FC<HeadComponentProps> = ({
       {/* Open Graph data */}
       <meta property="og:title" content={title} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://www.example.com/" />
+      <meta property="og:url" content="https://www.cjski.xyz/" />
       <meta property="og:image" content={image} />
       <meta property="og:description" content={description} />
-      <meta property="og:site_name" content="next-web3-template" />
+      <meta property="og:site_name" content="CJski Portfolio" />
       {/* Additional tags */}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="system" />{" "}

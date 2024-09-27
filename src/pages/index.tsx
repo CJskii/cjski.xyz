@@ -14,8 +14,8 @@ import { CtaButton } from "@/components/ui/cta-button";
 const HomePage: NextPage = () => {
   return (
     <PageLayout
-      title="Welcome to My Portfolio"
-      description="I'm a full-stack developer passionate about Web3 and building user-centric applications. Explore my projects, deployments, and get in touch!"
+      title="Welcome to My Portfolio 🚀"
+      description="I'm a full-stack developer passionate about Web3 and building user-centric applications. Check out my projects, deployments, and get in touch!"
       justify="start"
       align="center"
     >
