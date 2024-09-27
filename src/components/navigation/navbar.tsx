@@ -33,8 +33,8 @@ const linkData: NavLink[] = [
     href: "/projects",
   },
   {
-    label: "About Me",
-    href: "/about",
+    label: "Contact Me",
+    href: "/contact",
   },
 ];
 
