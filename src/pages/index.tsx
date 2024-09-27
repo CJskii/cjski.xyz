@@ -45,7 +45,7 @@ const HomePage: NextPage = () => {
         </div>
 
         <Avatar className="w-64 h-64">
-          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarImage src="/static/avatar.png" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </div>

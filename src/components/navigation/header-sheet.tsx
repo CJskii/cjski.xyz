@@ -15,6 +15,7 @@ import { useState } from "react";
 import { ConnectWalletButton } from "../ui/connect-button";
 import { Typography } from "../ui/typography";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { CtaButton, CtaButtonNavbar } from "../ui/cta-button";
 
 export const HeaderSheet: React.FC = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -56,15 +57,17 @@ export const HeaderSheet: React.FC = () => {
             className="hidden w-40 dark:block"
           /> */}
           <Typography variant="h3" className="font-bold">
-            Logo Placeholder
+            Mobile Menu
           </Typography>
         </div>
         <div className="flex flex-col items-stretch gap-2">
-          <ConnectWalletButton />
+          {/* <ConnectWalletButton /> */}
+
           <MobileNavLinks />
         </div>
-        <div className=" absolute bottom-4 left-4">
+        <div className=" absolute bottom-4 left-4 flex justify-center items-center gap-4">
           <ThemeToggler />
+          <CtaButtonNavbar />
         </div>
       </SheetContent>
     </Sheet>
