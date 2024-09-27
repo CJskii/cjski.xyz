@@ -105,7 +105,7 @@ export const EthereumIcon = () => {
 export const ArbitrumIcon = () => {
   return (
     <Image
-      src="/chain-icons/arbitrum2.svg"
+      src="/static/chain-icons/arbitrum2.svg"
       alt="Arbitrum"
       width={24}
       height={24}
