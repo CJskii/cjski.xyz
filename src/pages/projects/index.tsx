@@ -16,8 +16,12 @@ const ProjectsPage: NextPage<Props> = ({}) => {
       align="center"
       gap={12}
     >
-      <Typography variant="h1" className="text-left">
+      <Typography variant="h1" className="text-center">
         Projects
+      </Typography>
+      <Typography variant="muted" className="text-center text-lg mt-8">
+        Here are some of the projects I have worked on.<br></br> Click on the
+        link icons to see the code or the live demo.
       </Typography>
       <div className="grid md:grid-cols-2  p-4 gap-8 py-20">
         {projectsData.map((project, index) => (

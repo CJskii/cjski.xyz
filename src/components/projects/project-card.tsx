@@ -31,7 +31,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Card className="w-full flex flex-col justify-between">
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
-          <Typography variant="h3" className="tracking-wide">
+          <Typography
+            variant="blockquote"
+            className="tracking-wide text-xl mt-0"
+          >
             {title}{" "}
           </Typography>
           <div className="flex justify-center items-center gap-2">
