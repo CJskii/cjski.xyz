@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Typography } from "../ui/typography";
 import React from "react";
+import { CtaButtonNavbar } from "../ui/cta-button";
 
 interface NavLink {
   label: string;
@@ -24,16 +25,16 @@ interface NavLink {
 
 const linkData: NavLink[] = [
   {
+    label: "Contracts",
+    href: "/contracts",
+  },
+  {
     label: "Projects",
     href: "/projects",
   },
   {
     label: "About Me",
     href: "/about",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
   },
 ];
 
@@ -93,7 +94,8 @@ export const Navbar: React.FC = () => {
 
       <div className="flex-1  justify-end items-center gap-3 hidden  lg:flex">
         <ThemeToggler />
-        <ConnectWalletButton />
+        {/* <ConnectWalletButton /> */}
+        <CtaButtonNavbar />
       </div>
 
       <div className="block lg:hidden">

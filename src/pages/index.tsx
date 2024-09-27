@@ -10,8 +10,7 @@ import {
   TransactionCard,
 } from "@/components/landing-page/index";
 import { FeaturedRepos } from "@/components/landing-page/featured-repos";
-import { PulsatingButton } from "@/components/magicui/pulsating-button";
-import Link from "next/link";
+import { CtaButton } from "@/components/ui/cta-button";
 
 // TODO: Add crypto price ticker
 // TODO: Add downloadable resume
@@ -81,13 +80,7 @@ const HomePage: NextPage = () => {
           Let's make something great together! 💲 💰
         </Typography>
 
-        <Link href="https://cal.com/cjski" target="_blank">
-          <PulsatingButton className="mt-4 px-6 py-3 rounded-lg">
-            <Typography variant="small" className="font-medium">
-              📅 Book a call
-            </Typography>
-          </PulsatingButton>
-        </Link>
+        <CtaButton />
       </div>
     </PageLayout>
   );
