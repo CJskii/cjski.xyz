@@ -1,5 +1,4 @@
 import { PageLayout } from "@/components/page-layout";
-import { Button } from "@/components/ui/button";
 import { NextPage } from "next/types";
 import React from "react";
 import { Typography } from "@/components/ui/typography";
@@ -12,31 +11,36 @@ import {
 import { FeaturedRepos } from "@/components/landing-page/featured-repos";
 import { CtaButton } from "@/components/ui/cta-button";
 
-// TODO: Add crypto price ticker
-// TODO: Add downloadable resume
-// TODO: Add about me page
-// TODO: Add projects section
-
 const HomePage: NextPage = () => {
   return (
     <PageLayout
-      title="Homepage"
-      description="Welcome to next-web-template"
+      title="Welcome to My Portfolio"
+      description="I'm a full-stack developer passionate about Web3 and building user-centric applications. Explore my projects, deployments, and get in touch!"
       justify="start"
       align="center"
     >
       <div className="px-8 flex flex-col-reverse lg:flex-row justify-center items-center gap-16">
         <div>
           <Typography variant="h2" className="text-left">
-            Hey there! 👋
+            Hey, what's up? 👋
           </Typography>
-          <Typography variant="lead" className="text-left text-foreground mt-4">
-            I am Cezary, a full stack developer and a tech enthusiast, I enjoy
-            working on user center applications and building cool stuff.
+          <Typography
+            variant="lead"
+            className="text-left text-foreground pt-4 text-md"
+          >
+            I&rsquo;m Cezary, a full stack developer currently based in the UK.
+            I love building user-centric apps and turning cool ideas into
+            reality.
           </Typography>
-          <Typography variant="lead" className="text-left text-foreground pt-4">
-            I am Cezary, a full stack developer and a tech enthusiast, I enjoy
-            working on user centring applications and building cool stuff.
+
+          <Typography
+            variant="lead"
+            className="text-left text-foreground pt-4 text-md"
+          >
+            I&rsquo;m a quick learner who&rsquo;s always up for a new challenge.
+            Whether you&rsquo;re looking to create the next big thing or want to
+            launch a fun degen project, I&rsquo;m here to help you make it
+            happen.
           </Typography>
         </div>
 
@@ -64,20 +68,20 @@ const HomePage: NextPage = () => {
 
       <div className="flex flex-col justify-center items-center gap-6 p-8 bg-card rounded-lg">
         <Typography variant="h2" className="text-center">
-          Let's work together or just have a chat! 🚀
+          Ready to build something cool? 🚀
         </Typography>
         <Typography
           variant="lead"
           className="text-center text-muted-foreground max-w-2xl text-lg"
         >
-          Whether you have a project idea, need a developer for your team, or
-          simply want to talk about tech and Web3, I'm here to connect.
+          Got an idea, need a dev on your team, or just wanna chat about Web3
+          and tech? I&rsquo;m down to connect.
         </Typography>
         <Typography
           variant="lead"
           className="text-center text-muted-foreground text-lg"
         >
-          Let's make something great together! 💲 💰
+          Let&rsquo;s create something awesome together! 💲💰
         </Typography>
 
         <CtaButton />

@@ -71,25 +71,30 @@ const ContractsPage: NextPage = () => {
 
   return (
     <PageLayout
-      title="Mainnet deployments"
-      description="This is an example page"
+      title="My Mainnet Deployments"
+      description="Explore all the smart contracts I've deployed on mainnet networks. Check out the full list and see what I've been building in the Web3 space!"
       flexDirection="col"
       justify="start"
       align="center"
       gap={12}
     >
       <Typography variant="h1" className="text-left">
-        Mainnet deployments
+        Mainnet Deployments
       </Typography>
 
       <Typography
         variant="paragraph"
-        className="text-left text-muted-foreground"
+        className="text-left text-muted-foreground text-lg"
       >
         Total contracts deployed: {transformedData.length} 💪
       </Typography>
-      <Typography variant="muted" className="text-left">
-        Still counting 🚀
+
+      <Typography variant="muted" className="text-left text-md">
+        Deployed on {networks.length} chains ⛓️
+      </Typography>
+
+      <Typography variant="muted" className="text-left text-sm">
+        And still counting... 🚀
       </Typography>
 
       <div className="container mx-auto py-10">

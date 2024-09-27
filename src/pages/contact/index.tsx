@@ -11,19 +11,20 @@ interface Props {}
 const ContactPage: NextPage<Props> = () => {
   return (
     <PageLayout
-      title="Contact Me"
-      description="Get in touch with me"
+      title="Get in Touch"
+      description="Let's connect! Here are some ways you can reach out to me."
       flexDirection="col"
       justify="start"
       align="center"
       gap={12}
     >
       <Typography variant="h1" className="text-center">
-        Contact Me
+        Let's Connect
       </Typography>
 
       <Typography variant="muted" className="text-center mt-8 text-lg">
-        Here are some of the ways you can contact me.
+        Whether you have a question, want to collaborate, or just chat about
+        Web3, here&rsquo;s how you can reach me:
       </Typography>
 
       <div className="grid md:grid-cols-2 gap-8 py-20 w-full px-8">

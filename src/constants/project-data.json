@@ -43,7 +43,7 @@
   },
   {
     "id": 7,
-    "title": "Bug Bounty Platform UI",
+    "title": "Bug Bounty Platform",
     "description": "A bug bounty platform UI built with Next.js, TypeScript, and TailwindCSS. This project is designed to provide a clean and user-friendly interface for bug bounty hunters and security researchers to report vulnerabilities and earn rewards for their findings.",
     "githubLink": "https://github.com/CJskii/bug-bounty-ui",
     "demoLink": "https://bug-bounty-ui-coral.vercel.app"
@@ -76,25 +76,12 @@
     "githubLink": "https://github.com/CJskii/cv-application",
     "demoLink": "https://cv.cjski.xyz/"
   },
-  {
-    "id": 12,
-    "title": "Todo List App",
-    "description": "A modern and sleek todo list application built with React and Tailwind CSS. This project features a responsive design, task management, and a clean user interface.",
-    "githubLink": "https://github.com/CJskii/todo-app",
-    "demoLink": "https://todo.cjski.xyz/"
-  },
+
   {
     "id": 13,
     "title": "Battleship Game",
     "description": "Vanilla JavaScript Battleship game built with HTML, CSS, and JavaScript. This project features a responsive design, game logic, and a clean user interface.",
     "githubLink": "https://github.com/CJskii/Battleship-game",
     "demoLink": "https://battleship.cjski.xyz/"
-  },
-  {
-    "id": 14,
-    "title": "Weather App",
-    "description": "Weather application built with React and Tailwind CSS. This project features a responsive design, weather data fetching for your selected city, and a clean user interface.",
-    "githubLink": "https://github.com/CJskii/weather-app",
-    "demoLink": "https://weather.cjski.xyz/"
   }
 ]
