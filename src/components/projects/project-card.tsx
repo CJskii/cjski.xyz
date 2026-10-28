@@ -39,12 +39,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </Typography>
           <div className="flex justify-center items-center gap-2">
             <Button variant="ghost" size="icon">
-              <Link href={githubLink}>
+              <Link href={githubLink} target="_blank" rel="noopener noreferrer">
                 <GitHubIcon />
               </Link>
             </Button>
             <Button variant="ghost" size="icon">
-              <Link href={demoLink} target="_blank">
+              <Link href={demoLink} target="_blank" rel="noopener noreferrer">
                 <Globe />
               </Link>
             </Button>
