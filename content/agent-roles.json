@@ -1,0 +1,78 @@
+[
+  {
+    "title": "Engineering",
+    "roles": [
+      {
+        "title": "CTO",
+        "description": "Architecture & standards"
+      },
+      {
+        "title": "Builder",
+        "description": "Code & implementation"
+      },
+      {
+        "title": "Debugger",
+        "description": "Runtime diagnosis"
+      }
+    ]
+  },
+  {
+    "title": "Growth & business",
+    "roles": [
+      {
+        "title": "CMO",
+        "description": "Promotion & growth"
+      },
+      {
+        "title": "Sales",
+        "description": "Offers & commercial planning"
+      },
+      {
+        "title": "Diagram",
+        "description": "Technical visualisation"
+      },
+      {
+        "title": "Scribe",
+        "description": "Writing & explanations"
+      },
+      {
+        "title": "Ops publisher",
+        "description": "Approved release operations"
+      }
+    ]
+  },
+  {
+    "title": "Research & strategy",
+    "roles": [
+      {
+        "title": "Research",
+        "description": "Investigation & evidence"
+      },
+      {
+        "title": "Radar",
+        "description": "Social & technical sensors"
+      },
+      {
+        "title": "Strategy",
+        "description": "Options & trade-offs"
+      }
+    ]
+  },
+  {
+    "title": "Quality & tooling",
+    "roles": [
+      {
+        "title": "QA auditor",
+        "description": "Quality, evidence & privacy"
+      },
+      {
+        "title": "Prompt engineer",
+        "description": "Instructions & evaluation"
+      },
+      {
+        "title": "Recruiter",
+        "description": "Agent roles & onboarding"
+      }
+    ]
+  }
+]

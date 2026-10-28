@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Devices & lighting",
+    "services": "Philips Hue, Matter, LG webOS TV"
+  },
+  {
+    "title": "Energy",
+    "services": "SolaX, Modbus, Octopus Energy, Forecast.Solar"
+  },
+  {
+    "title": "Cameras",
+    "services": "Custom-built security dashboard, ONVIF"
+  },
+  {
+    "title": "Routines",
+    "services": "Google Calendar, UK Bin Collection Data"
+  },
+  {
+    "title": "Service health",
+    "services": "Glances, Uptime Kuma, Speedtest Tracker"
+  },
+  {
+    "title": "Media & files",
+    "services": "Plex, Nextcloud"
+  }
+]

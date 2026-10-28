@@ -1,0 +1,53 @@
+[
+  {
+    "id": "home-lab",
+    "title": "Self-hosted services",
+    "status": "Server",
+    "summary": "Media, files, infrastructure and everyday tools on my own server.",
+    "stack": ["Docker", "Coolify", "Shared storage", "Monitoring"],
+    "image": "/projects/lab-home-card.svg",
+    "description": "I self-host the services I use for media, file sharing, application hosting and everyday tasks. Docker brings the applications together; shared folders and persistent storage keep the data on my own infrastructure.",
+    "relatedProjectIds": ["self-hosted-compose"]
+  },
+  {
+    "id": "local-inference",
+    "title": "Local AI & generation",
+    "status": "Local workstation",
+    "summary": "Local LLMs and custom image, video and audio workflows on my own hardware.",
+    "stack": [
+      "Ubuntu",
+      "llama.cpp router",
+      "MTP",
+      "Ollama",
+      "OpenCode",
+      "WebUI",
+      "ComfyUI"
+    ],
+    "image": "/projects/lab-inference-card.svg",
+    "description": "An Ubuntu workstation for local conversations, tool-driven tasks and custom image, video and audio workflows. I use llama.cpp with model routing and MTP, alongside Ollama, through OpenCode or a WebUI.",
+    "relatedProjectIds": ["token-playground"]
+  },
+  {
+    "id": "home-assistant",
+    "title": "Home Assistant",
+    "status": "Home automation",
+    "summary": "My view of the house: lighting, heating, cameras, solar generation and hosted services.",
+    "stack": ["Home Assistant"],
+    "description": "Home Assistant brings together everyday automations and monitoring: lights throughout the house, heating schedules, local camera notifications, bin reminders, solar generation and hosted-service monitoring.",
+    "relatedProjectIds": []
+  },
+  {
+    "id": "agent-organisation",
+    "title": "Agent organisation",
+    "status": "Self-hosted experiment",
+    "summary": "A self-hosted Hermes organisation: one CEO coordinating specialist agents across engineering, growth, research and QA.",
+    "stack": [
+      "Hermes",
+      "Docker",
+      "Task dependencies",
+      "Local & cloud inference"
+    ],
+    "description": "I run a self-hosted agent organisation using Hermes. A coordinator delegates work to specialist roles, with shared task workspaces, dependency-based handoffs and review before acceptance.",
+    "relatedProjectIds": []
+  }
+]
