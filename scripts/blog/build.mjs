@@ -3,6 +3,7 @@ import { mkdir, rm, cp, writeFile, readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { prepare } from "./prepare.mjs";
+import { readableStaticOutput } from "./static-permissions.mjs";
 const repo = fileURLToPath(new URL("../../", import.meta.url));
 const preview =
   process.argv[2] === "--preview" ? path.resolve(process.argv[3] || "") : null;
@@ -20,6 +21,7 @@ const result = spawnSync(
 );
 if (result.status !== 0) process.exit(result.status || 1);
 const dist = path.join(repo, ".generated/blog/dist");
+await readableStaticOutput(dist);
 if (preview) {
   console.log("Private output only: " + dist);
   process.exit(0);

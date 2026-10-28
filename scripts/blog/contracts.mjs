@@ -75,7 +75,7 @@ export async function verifyBundle(root) {
   const url = new URL(m.canonical_url);
   if (
     url.origin !== "https://cjski.dev" ||
-    !/^\/blog\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(url.pathname) ||
+    !/^\/blog\/[a-z0-9]+(?:-[a-z0-9]+)*\/?$/.test(url.pathname) ||
     url.search ||
     url.hash
   )
@@ -120,8 +120,26 @@ export async function verifyBundle(root) {
     meta.fixture === true
   )
     throw Error("Invalid article metadata");
+  if (
+    !["rendered", "evidence"].every((kind) =>
+      m.artifacts.some((a) => a.kind === kind && files.get(a.path)?.length > 0),
+    )
+  )
+    throw Error("Long-form needs rendered output and evidence artifacts");
   const assets = m.artifacts.filter((a) => a.kind === "visual");
   if (!assets.length) throw Error("Long-form needs a reviewed visual");
+  const prose = source
+    .slice(front[0].length)
+    .replace(/```[^\n]*\n[\s\S]*?```/g, "");
+  const embeddedFigures = [...prose.matchAll(/!\[([^\]]+)\]\(([^)]+)\)/g)];
+  if (
+    !embeddedFigures.some(
+      (match) =>
+        match[1].trim() && assets.some((asset) => asset.path === match[2]),
+    )
+  )
+    throw Error("Article body must include a reviewed explanatory figure");
+
   for (const a of assets) {
     if (
       !/^assets\/[a-zA-Z0-9_-]+\.(png|webp|jpe?g|svg)$/.test(a.path) ||

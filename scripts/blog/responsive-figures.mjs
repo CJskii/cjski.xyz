@@ -1,11 +1,15 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
-export default function responsiveFigures() {
+export default function responsiveFigures(options = {}) {
   return (tree) => {
     let entries = [];
     try {
       entries = JSON.parse(
-        readFileSync(path.resolve(".generated/blog/catalogue.json"), "utf8"),
+        readFileSync(
+          options.cataloguePath ||
+            path.resolve(".generated/blog/catalogue.json"),
+          "utf8",
+        ),
       );
     } catch {
       return;
@@ -13,9 +17,10 @@ export default function responsiveFigures() {
     const pairs = new Map();
     for (const entry of entries)
       for (const asset of entry.assets || []) {
-        if (asset.url.endsWith("-desktop.svg")) {
+        if (asset.url.endsWith(".svg") && !asset.url.endsWith("-mobile.svg")) {
           const other = entry.assets.find(
-            (a) => a.url === asset.url.replace("-desktop.svg", "-mobile.svg"),
+            (a) =>
+              a.url === asset.url.replace(/(?:-desktop)?\.svg$/, "-mobile.svg"),
           );
           if (other) pairs.set(asset.url, other.url);
         }
@@ -36,7 +41,7 @@ export default function responsiveFigures() {
                 type: "element",
                 tagName: "source",
                 properties: {
-                  media: "(max-width: 600px)",
+                  media: "(max-width: 1050px)",
                   srcSet: pairs.get(child.properties.src),
                 },
                 children: [],

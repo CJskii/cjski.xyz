@@ -10,6 +10,10 @@ if (!draft || !previewUrl || !registry)
 const record = JSON.parse(
   await readFile(path.join(draft, "request.json"), "utf8"),
 );
+if (record.action && record.action !== "unpublish_web")
+  throw Error(
+    "Unreviewed candidate cannot request publication; complete independent SEO, QA and CEO reviews first",
+  );
 if (record.renderer_digest !== (await rendererDigest(process.cwd())))
   throw Error("Renderer changed; reimport/review");
 const withdrawing = record.action === "unpublish_web";

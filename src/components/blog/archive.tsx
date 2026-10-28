@@ -15,9 +15,11 @@ export function topicLabel(tag: string) {
 export function BlogArchive({
   articles,
   pageNumber = 1,
+  preview = false,
 }: {
   articles: PublicArticle[];
   pageNumber?: number;
+  preview?: boolean;
 }) {
   const [query, setQuery] = useState("");
   const [topic, setTopic] = useState("");
@@ -44,6 +46,7 @@ export function BlogArchive({
     active = !!query.trim() || !!topic;
   return (
     <PageLayout
+      noindex={preview}
       title={
         pageNumber > 1 ? `Cold Boot — page ${pageNumber}` : "Cold Boot blog"
       }
@@ -79,6 +82,15 @@ export function BlogArchive({
           }}
         />
       </Head>
+      {preview && (
+        <div className="review-banner">
+          <strong>Temporary layout preview</strong>
+          <span>
+            Sample articles and dates only — these are not published field
+            notes.
+          </span>
+        </div>
+      )}
       <header className="page-heading blog-heading">
         <p className="eyebrow">The field notes</p>
         <h1>Cold Boot.</h1>
@@ -98,7 +110,7 @@ export function BlogArchive({
       </header>
       {articles.length > 0 ? (
         <section aria-label="Articles" className="blog-archive">
-          {(articles.length >= 6 || topics.length > 1) && (
+          {articles.length > 0 && (
             <div className="blog-toolbar">
               <label className="blog-search">
                 <span>Search articles</span>
@@ -112,7 +124,7 @@ export function BlogArchive({
                   placeholder="Models, networking, agents…"
                 />
               </label>
-              {topics.length > 1 && (
+              {topics.length > 0 && (
                 <div
                   className="filters"
                   role="group"

@@ -85,6 +85,13 @@ try {
     await page.goto(base + "/blog");
     await page.waitForLoadState("networkidle");
     assert.equal(await page.locator(".blog-index-card").count(), 12);
+    const footerGap = await page.evaluate(
+      () =>
+        document.querySelector(".site-footer").getBoundingClientRect().top -
+        document.querySelector(".blog-newsletter").getBoundingClientRect()
+          .bottom,
+    );
+    assert.ok(footerGap >= 48, `Newsletter/footer gap too small: ${footerGap}`);
     assert.equal(
       await page.evaluate(
         () => document.documentElement.scrollWidth > innerWidth,

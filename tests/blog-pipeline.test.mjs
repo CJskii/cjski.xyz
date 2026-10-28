@@ -10,6 +10,7 @@ import {
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
+import { spawnSync } from "node:child_process";
 import {
   sha,
   digestManifest,
@@ -237,5 +238,103 @@ test("republishing a withdrawn article needs a fresh approval bound to its relea
   await assert.rejects(
     readFile(path.join(repo, "content/blog/withdrawals/useful-sample.json")),
     /ENOENT/,
+  );
+});
+
+test("every article requires exact-revision SEO, independent QA and CEO checks", async (t) => {
+  for (const [role, check] of [
+    ["cmo", "seo_metadata"],
+    ["qa-auditor", "rendering"],
+    ["qa-auditor", "evidence"],
+    ["default", "independent_reviews"],
+  ]) {
+    const { bundle, repo, m } = await fixture(t);
+    const file = path.join(bundle, m.reviews[role]);
+    const review = JSON.parse(await readFile(file, "utf8"));
+    review.checks[check] = false;
+    await writeFile(file, JSON.stringify(review));
+    await assert.rejects(importDraft(bundle, repo), /review/);
+  }
+  for (const role of ["cmo", "qa-auditor", "default"]) {
+    const { bundle, repo, m } = await fixture(t);
+    delete m.reviews[role];
+    await writeFile(path.join(bundle, "manifest.json"), JSON.stringify(m));
+    await assert.rejects(importDraft(bundle, repo));
+  }
+});
+
+test("a blog without a reviewed illustration cannot enter the website pipeline", async (t) => {
+  const { bundle, repo, m } = await fixture(t);
+  m.artifacts = m.artifacts.filter((a) => a.kind !== "visual");
+  for (const file of Object.values(m.reviews)) {
+    const review = JSON.parse(await readFile(path.join(bundle, file), "utf8"));
+    review.bundle_digest = digestManifest(m);
+    await writeFile(path.join(bundle, file), JSON.stringify(review));
+  }
+  await writeFile(path.join(bundle, "manifest.json"), JSON.stringify(m));
+  await assert.rejects(importDraft(bundle, repo), /visual/);
+});
+
+test("evidence and rendered output are mandatory blog artifacts", async (t) => {
+  for (const kind of ["rendered", "evidence"]) {
+    const { bundle, repo, m } = await fixture(t);
+    m.artifacts = m.artifacts.filter((a) => a.kind !== kind);
+    for (const file of Object.values(m.reviews)) {
+      const review = JSON.parse(
+        await readFile(path.join(bundle, file), "utf8"),
+      );
+      review.bundle_digest = digestManifest(m);
+      await writeFile(path.join(bundle, file), JSON.stringify(review));
+    }
+    await writeFile(path.join(bundle, "manifest.json"), JSON.stringify(m));
+    await assert.rejects(
+      importDraft(bundle, repo),
+      /rendered output and evidence/,
+    );
+  }
+});
+
+test("a packaged image is insufficient when no reviewed figure appears in the article", async (t) => {
+  const { bundle, repo, m } = await fixture(t);
+  const sourceFile = path.join(bundle, "source.md");
+  const source = (await readFile(sourceFile, "utf8")).replace(
+    "![A box](assets/figure.svg)",
+    "",
+  );
+  await writeFile(sourceFile, source);
+  m.artifacts.find((a) => a.path === "source.md").sha256 = sha(source);
+  for (const file of Object.values(m.reviews)) {
+    const review = JSON.parse(await readFile(path.join(bundle, file), "utf8"));
+    review.bundle_digest = digestManifest(m);
+    await writeFile(path.join(bundle, file), JSON.stringify(review));
+  }
+  await writeFile(path.join(bundle, "manifest.json"), JSON.stringify(m));
+  await assert.rejects(importDraft(bundle, repo), /Article body must include/);
+});
+
+test("unreviewed renderer candidates cannot request publication or be promoted", async (t) => {
+  const { root, repo, bundle } = await fixture(t);
+  await writeFile(
+    path.join(bundle, "request.json"),
+    JSON.stringify({ action: "review_candidate", review_status: "unreviewed" }),
+  );
+  const result = spawnSync(
+    process.execPath,
+    [
+      path.resolve("scripts/blog/request.mjs"),
+      bundle,
+      "https://preview.cjskii.duckdns.org/test",
+      path.join(root, "registry"),
+    ],
+    { encoding: "utf8" },
+  );
+  assert.notEqual(result.status, 0);
+  assert.match(
+    result.stderr,
+    /Unreviewed candidate cannot request publication/,
+  );
+  await assert.rejects(
+    promote(bundle, path.join(root, "not-an-approval.json"), repo),
+    /dedicated withdrawal workflow/,
   );
 });

@@ -7,6 +7,9 @@ export interface JsonLdOptions {
       title: string;
       description: string;
       publishedAt: Date;
+      draft?: boolean;
+      noindex?: boolean;
+      publicationAuthorised?: boolean;
       updatedAt?: Date;
       articleType?: "Article" | "TechArticle";
       tags?: string[];
@@ -75,10 +78,16 @@ export function generateJsonLdGraph(
       description: post.data.description,
       mainEntityOfPage: canonicalUrl,
       url: canonicalUrl,
-      datePublished: post.data.publishedAt.toISOString(),
-      dateModified: (
-        post.data.updatedAt ?? post.data.publishedAt
-      ).toISOString(),
+      ...(!post.data.draft &&
+      !post.data.noindex &&
+      post.data.publicationAuthorised === true
+        ? {
+            datePublished: post.data.publishedAt.toISOString(),
+            dateModified: (
+              post.data.updatedAt ?? post.data.publishedAt
+            ).toISOString(),
+          }
+        : {}),
       author:
         authorRefs.length > 0
           ? authorRefs

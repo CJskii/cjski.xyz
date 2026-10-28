@@ -23,7 +23,9 @@
     "blog:submit": "node scripts/blog/submit.mjs",
     "blog:serve-preview": "node scripts/blog/serve-preview.mjs",
     "blog:verify-live": "node scripts/blog/verify-live.mjs",
+    "blog:render-candidate": "node scripts/blog/render-candidate.mjs",
     "blog:prepare-review": "node scripts/blog/prepare-review.mjs",
+    "blog:doctor": "node scripts/blog/doctor.mjs",
     "blog:worker": "node scripts/blog/worker.mjs",
     "blog:unpublish": "node scripts/blog/withdraw.mjs request",
     "test:blog": "node scripts/verify-blog.mjs"

@@ -24,7 +24,11 @@ run(process.execPath, ["scripts/blog/check-preview.mjs", draft.directory], {
   BLOG_PREVIEW_BASE: base,
 });
 const url =
-  "https://preview.cjskii.duckdns.org" + base + "/" + draft.record.slug + "/";
+  "https://blog-preview.cjskii.duckdns.org" +
+  base +
+  "/" +
+  draft.record.slug +
+  "/";
 if (flags.includes("--export")) {
   const container =
     process.env.WEBSITE_PREVIEW_CONTAINER ||

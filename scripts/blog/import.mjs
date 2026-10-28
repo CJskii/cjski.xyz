@@ -1,6 +1,7 @@
 import { mkdir, writeFile, rename, readFile, rm } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { normaliseReviews } from "./normalise-reviews.mjs";
 import {
   verifyBundle,
   releaseIdentity,
@@ -12,6 +13,7 @@ import {
   sha,
 } from "./contracts.mjs";
 export async function importDraft(bundle, repo = process.cwd()) {
+  await normaliseReviews(bundle);
   const v = await verifyBundle(bundle);
   let previous, withdrawal;
   try {
@@ -78,7 +80,10 @@ export async function promote(draft, approvalFile, repo = process.cwd()) {
   const record = JSON.parse(
     await readFile(path.join(draft, "request.json"), "utf8"),
   );
-  if (record.action) throw Error("Use the dedicated withdrawal workflow");
+  if (record.action)
+    throw Error(
+      "Only a reviewed publication draft can be promoted; use the dedicated withdrawal workflow for removal",
+    );
   const approval = JSON.parse(await readFile(approvalFile, "utf8"));
   verifyApproval(record, approval);
   if (record.renderer_digest !== (await rendererDigest(repo)))

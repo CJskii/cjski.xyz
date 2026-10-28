@@ -59,17 +59,53 @@ try {
         .querySelector("meta[name=robots]")
         ?.content.includes("noindex"),
       h1: document.querySelectorAll("h1").length,
+      figureSources: [...document.querySelectorAll(".article-body img")].map(
+        (img) => ({
+          src: img.getAttribute("src"),
+          currentSrc: img.currentSrc,
+        }),
+      ),
+      title: document.title,
+      description: document.querySelector('meta[name="description"]')?.content,
+      articleSchema: [
+        ...document.querySelectorAll('script[type="application/ld+json"]'),
+      ].some((script) => {
+        try {
+          const data = JSON.parse(script.textContent);
+          return (data["@graph"] || [data]).some((node) =>
+            ["Article", "TechArticle", "BlogPosting"].includes(node["@type"]),
+          );
+        } catch {
+          return false;
+        }
+      }),
     }));
     if (
       r.status() !== 200 ||
       result.overflow ||
       !result.images ||
       result.h1 !== 1 ||
+      !result.title.includes(record.title) ||
+      result.description !== record.description ||
+      !result.articleSchema ||
       !result.noindex ||
       result.canonical !== record.canonical_url.replace(/\/$/, "") ||
       errors.length
     )
       throw Error("Rendered preview check failed at " + width);
+    if (width <= 1050) {
+      for (const image of result.figureSources) {
+        const name = path.basename(image.src || "");
+        const mobileName = name.replace(/(?:-desktop)?\.svg$/, "-mobile.svg");
+        if (
+          record.assets.some((a) => path.basename(a.path) === mobileName) &&
+          !image.currentSrc.endsWith("/" + mobileName)
+        )
+          throw Error(
+            "Phone preview did not load the reviewed mobile figure: " + name,
+          );
+      }
+    }
     await page.screenshot({
       path: path.join(draft, "preview-" + width + ".png"),
       fullPage: true,
