@@ -400,7 +400,11 @@ export function EquipmentIllustration({
         <button
           type="button"
           className="hardware-motion-control"
-          aria-label="Animate hardware illustration"
+          aria-label={
+            moving
+              ? "Pause animation of hardware illustration"
+              : "Play animation of hardware illustration"
+          }
           aria-pressed={moving}
           title={
             reducedMotion && motionChoice === "auto"

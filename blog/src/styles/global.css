@@ -1,0 +1,108 @@
+@import "@fontsource-variable/instrument-sans";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "../../../src/styles/globals.css";
+
+/* Article-specific additions; site tokens, navigation and prose are shared. */
+.blog-article-header {
+  margin-bottom: 2.5rem;
+}
+.blog-article-description {
+  font-size: 1.15rem;
+  max-width: 720px;
+  line-height: 1.75;
+  color: var(--secondary-text);
+}
+.blog-article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--secondary-text);
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
+}
+.blog-reading-layout {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 720px);
+  gap: 3rem;
+  align-items: start;
+}
+.blog-reading-layout .article-toc {
+  position: sticky;
+  top: 2rem;
+}
+.blog-reading-layout .article-toc nav {
+  display: grid;
+  gap: 0.75rem;
+}
+.blog-reading-layout .article-toc a {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--secondary-text);
+  text-decoration: none;
+}
+.blog-reading-layout .article-toc a:hover {
+  color: var(--accent-ink);
+}
+.blog-reading-layout .prose {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.blog-reading-layout .prose :is(h2, h3) {
+  scroll-margin-top: 2rem;
+}
+.blog-reading-layout .prose picture {
+  display: block;
+  margin: 2rem 0;
+}
+.blog-reading-layout .prose picture img {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  background: #f3f5f3;
+  border-radius: 0.6rem;
+}
+.blog-reading-layout .prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.blog-reading-layout .prose table {
+  display: block;
+  overflow-x: auto;
+}
+.blog-article-finish {
+  margin-top: 4rem;
+}
+.blog-article-finish .blog-newsletter {
+  margin-top: 2rem;
+}
+.blog-article-hero {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin: 2rem 0;
+}
+.blog-reading-layout .prose h2:first-child {
+  margin-top: 0;
+}
+@media (max-width: 950px) {
+  .blog-reading-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .blog-reading-layout .article-toc {
+    position: static;
+    border: 1px solid var(--stroke);
+    padding: 1.4rem;
+    border-radius: 0.7rem;
+    background: var(--surface);
+  }
+  .blog-reading-layout .article-toc nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .blog-reading-layout .article-toc nav {
+    grid-template-columns: 1fr;
+  }
+}

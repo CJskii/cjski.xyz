@@ -1,0 +1,10 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import {getPostUrl} from '../lib/urls.ts';
+const {post,authors,headings=[],readingTime}=Astro.props;
+const sections=headings.filter((h:any)=>h.depth===2||h.depth===3);
+const image=post.data.cover&&!post.data.cover.url.endsWith('.svg')?post.data.cover.url:'/static/share.png';
+---
+<BaseLayout title={post.data.title} description={post.data.description} canonicalPath={getPostUrl(post.data.slug)} type="article" noindex={post.data.noindex} image={image} post={post} authors={authors}>
+<article><header class="article-heading blog-article-header"><a class="eyebrow" href="/blog">Cold Boot / Field notes</a><h1>{post.data.title}</h1><p class="blog-article-description">{post.data.description}</p><div class="blog-article-meta"><a href="/authors/cjskii">By CJSKI</a><span>{readingTime} min read</span>{!post.data.draft&&<time datetime={post.data.publishedAt.toISOString()}>{post.data.publishedAt.toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'})}</time>}{post.data.updatedAt&&<span>Updated <time datetime={post.data.updatedAt.toISOString()}>{post.data.updatedAt.toLocaleDateString("en-GB",{year:"numeric",month:"long",day:"numeric",timeZone:"UTC"})}</time></span>}</div></header>
+<div class="blog-reading-layout">{sections.length>0?<aside class="article-toc"><p class="eyebrow">In this article</p><nav aria-label="Article sections">{sections.map((h:any)=><a href={'#'+h.slug}>{h.text}</a>)}</nav></aside>:<div/>}<div class="prose article-body"><slot/></div></div><aside class="blog-article-finish"><div class="blog-newsletter"><div><p class="eyebrow">Cold Boot, in your inbox</p><h2>Keep the useful bits.</h2><p>What worked, what broke, and what I learned building useful AI systems.</p></div><a class="button-primary" href="https://cjski.beehiiv.com/subscribe">Subscribe to Cold Boot <span aria-hidden="true">↗</span></a></div><p class="profile-links"><a href="/blog">All field notes</a><a href="/lab">Explore the lab</a></p></aside></article></BaseLayout>

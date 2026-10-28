@@ -17,7 +17,11 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     "/newsletter",
     "/contact",
     ...projects.map((p) => `/projects/${p.id}`),
-    ...getPublicArticles().map((p) => `/blog/${p.slug}/`),
+    ...Array.from(
+      { length: Math.max(0, Math.ceil(getPublicArticles().length / 12) - 1) },
+      (_, i) => `/blog/page/${i + 2}`,
+    ),
+    ...getPublicArticles().map((p) => `/blog/${p.slug}`),
   ];
   res.setHeader("Content-Type", "application/xml; charset=utf-8");
   res.write(

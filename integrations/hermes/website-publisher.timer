@@ -1,0 +1,8 @@
+[Unit]
+Description=Check approved website publication decisions
+[Timer]
+OnBootSec=2m
+OnUnitInactiveSec=60s
+Unit=website-publisher.service
+[Install]
+WantedBy=timers.target

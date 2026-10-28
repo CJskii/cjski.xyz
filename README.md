@@ -54,7 +54,7 @@ featured. The contracts page is a read-only historical index. Wallet/auth demo
 routes are retired; the old transaction API returns HTTP 410.
 
 The newsletter points to the owner-provided Beehiiv signup. The homepage card and
-newsletter page open it in a new tab. The blog destination remains pending. The
+newsletter page open it in a new tab. The /blog index now lists explicitly released articles rendered by the bundled Astro build. The
 site does not collect email addresses or send newsletters itself.
 
 ## Private article review

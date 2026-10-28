@@ -4,6 +4,16 @@ const nextConfig = {
   devIndicators: false,
   poweredByHeader: false,
   outputFileTracingExcludes: { "/*": ["./content/private/**/*"] },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/blog/:slug([a-z0-9-]+)",
+          destination: "/blog/:slug/index.html",
+        },
+      ],
+    };
+  },
   async headers() {
     return [
       {

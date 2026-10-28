@@ -47,3 +47,18 @@ yarn-error.log*
 /WEBSITE_HANDOFF.md
 /docs/website/*
 !/docs/website/BRAND_ASSETS.md
+
+# Generated Astro build; drafts remain under content/private.
+/.generated/
+/public/blog/
+/blog/.astro/
+/blog/node_modules/
+
+# Local Python adapter test caches.
+__pycache__/
+*.pyc
+
+# Internal publishing plans and operator handoffs stay local.
+/docs/BLOG_PUBLISHING.md
+/blog/PROVENANCE.md
+/integrations/hermes/WEBSITE_PUBLICATION.md
