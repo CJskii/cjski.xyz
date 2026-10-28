@@ -1,192 +1,112 @@
-# **Next.js + Rainbowkit + SIWE + shadcn Template**
+# CJSKI / Cold Boot
 
-Live Demo: [https://next-web3-template-umber.vercel.app/](https://next-web3-template-umber.vercel.app/)
+Personal portfolio for CJSKI, a software and AI engineer. The site includes
+selected projects, earlier engineering work, a self-hosted Lab, public GitHub
+activity, contact options and Cold Boot publication links.
 
-A **Next.js** Web3 project template, powered by **TypeScript**, **RainbowKit**, **Wagmi**, **Shadcn**, and **TailwindCSS**. This template is designed to streamline the creation of Web3 applications with **SIWE (Sign-In With Ethereum)** authentication, a theme toggler, and modern design patterns.
+## Development
 
----
+Use Node 24 and npm; the npm lockfile replaces the old Bun lockfile.
 
-## ✨ **What's Included**
-
-This template includes the following key features:
-
-- **Next.js** with **TypeScript**: Full TypeScript support for modern, scalable applications.
-- **RainbowKit + Wagmi**: Seamless Ethereum wallet connection and Web3 functionality with built-in wallet UI.
-- **SIWE (Sign-In With Ethereum)**: Pre-configured authentication solution for decentralized logins using NextAuth.
-- **TailwindCSS**: A utility-first CSS framework for fast and responsive design.
-- **Shadcn Components**: A customizable component library built on TailwindCSS for building modern UIs.
-- **Theme Toggle**: Dark/light mode toggler with TailwindCSS-based theme switching.
-- **React Query**: Integrated for managing server state and caching.
-- **NextAuth**: Secure authentication setup, with support for Web3-based logins.
-- **Bun** for Fast Package Management: Support for Bun to speed up dependency installation and script execution.
-
----
-
-## 🎯 **Goals of This Template**
-
-The **Next.js + SIWE Template** aims to provide developers with a quick and efficient starting point for building Web3 applications. The key objectives are:
-
-- **Speed**: Reduce the time to start a Web3 project by providing a pre-configured Next.js setup.
-- **Ease of Use**: Provide a fully functional template that includes wallet integration, authentication, and styling out of the box.
-- **Customizable**: Allow developers to extend or modify the template as per their project needs.
-- **Best Practices**: Promote best practices by using well-maintained libraries like RainbowKit, Wagmi, NextAuth, Shadcn, and TailwindCSS.
-
----
-
-## 🚀 **Getting Started**
-
-### **Use This Template**
-
-1. **Clone the Template:**
-
-   Click the **"Use this template"** button at the top of this repository to create a new project based on this template.
-
-2. **Clone via CLI:**
-
-   Alternatively, you can clone the repository using the CLI:
-
-   ```bash
-   git clone https://github.com/CJskii/next-web3-template.git my-web3-app
-   cd my-web3-app
-
-   ```
-
-3. **Install Dependencies:**
-
-This project uses Bun for managing dependencies. If you don't have Bun installed, follow the installation instructions [here](https://bun.sh/docs/installation).
-
-- Once Bun is installed, run:
-
-```bash
-bun install
+```sh
+nvm use
+npm ci
+npm run dev
 ```
 
-- Set up Environment Variables:
+Development binds to loopback. Production builds exclude unpublished articles.
 
-Copy the .env.example file to .env.local and update the variables as needed:
-
-```bash
-cp .env.example .env.local
+```sh
+npm run typecheck
+npm test
+npm run build
+npm run start:local
 ```
 
-- Start the development server:
+The framework-specific contributor instructions are in [AGENTS.md](AGENTS.md).
 
-```bash
-bun run dev
+## Preview from another computer
+
+After building, run:
+
+```sh
+npm run preview:lan
 ```
 
-- Open http://localhost:3000 to view the app.
+The launcher binds port 3101 to a private Ethernet/Wi-Fi IPv4 address and prints
+the URL. Open that URL on a computer on the same network. Set
+`WEBSITE_PREVIEW_HOST` to choose a different private interface. The LAN preview
+clears the draft-review flag; unpublished articles and their media stay blocked.
 
-## 🛠️ How to Contribute
+## Content and identity
 
-We welcome contributions to improve this template. Here's how you can get involved:
+- `src/lib/site.ts`: public identity, navigation, booking and publication URLs.
+- `content/project-register.json`: featured/earlier project placement and scope.
+- `content/featured-projects.json`: additional public projects.
+- `content/project-dates.json`: repository creation dates used for sorting.
+- `content/etherway-case-study.json`: source-backed Etherway case study.
+- `content/lab-projects.json`: Lab entries; companion JSON files hold services,
+  agent roles, home automations and selected integrations.
+- `content/github-snapshot.json`: dated fallback for bounded public GitHub reads.
 
-- Fork the repository: Start by forking this repository to your GitHub account.
+Existing numeric project routes remain available even when a project is not
+featured. The contracts page is a read-only historical index. Wallet/auth demo
+routes are retired; the old transaction API returns HTTP 410.
 
-- Clone your fork: Clone your forked repository to your local machine.
+The newsletter points to the owner-provided Beehiiv signup. The homepage card and
+newsletter page open it in a new tab. The blog destination remains pending. The
+site does not collect email addresses or send newsletters itself.
 
-```bash
-git clone https://github.com/yourusername/next-web3-template.git
-cd next-web3-template
+## Private article review
+
+Unpublished packages belong under `content/private/`, outside `public/` and
+ignored by Git. Re-import the approved draft package on a fresh checkout:
+
+```sh
+npm run import:article -- /absolute/path/to/reviewed-package
+npm run review
 ```
 
-- Create a new branch: Create a new branch for your feature or fix.
+The private review server binds to loopback on port 3100. Its draft and media
+routes require an explicit review flag, loopback socket/host and no forwarded
+headers. For access from another computer, use your existing authenticated SSH
+connection to forward port 3100 locally. Do not expose the review server publicly.
 
-```bash
-git checkout -b feature/your-feature-name
+The importer checks the package's draft/publication state and file hashes.
+Changes to reviewed content require a fresh package; layout changes require
+fresh render checks. Public pages, sitemap and feed filter out drafts, fixtures,
+future posts and content without publication authorisation.
+
+## Browser and route verification
+
+With the production preview and private review server running:
+
+```sh
+npm run test:http
+npm run test:browser
+node scripts/verify-expansion.mjs
 ```
 
-- Make your changes: Make the necessary changes to the template.
+Install Chromium with `npx playwright install chromium`, or set
+`PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to an existing compatible executable.
+Set `WEBSITE_PUBLIC_TEST_URL` and `WEBSITE_REVIEW_URL` when using different
+preview addresses. Results and screenshots are generated under `docs/website/`
+and remain local review artifacts.
 
-- Commit your changes:
+Builds and browser checks verify the candidate; they do not establish that a
+public deployment, provider signup confirmation or email delivery has succeeded.
 
-```bash
-git add .
-git commit -m "Add your feature description here"
-```
+## Visual assets
 
-- Push your changes:
+Project covers and hardware artwork are original SVG/code illustrations, not
+screenshots of working applications or exact product photographs. Existing
+project banners are retained where available. Hardware model labels and private
+endpoints are omitted. Animation respects reduced motion by default; explicit
+play/pause is remembered in the browser.
 
-```bash
-git push origin feature/your-feature-name
-```
+Tool-logo sources and attribution are in [BRAND_ASSETS.md](docs/website/BRAND_ASSETS.md).
+Font licences are under `public/fonts/`.
 
-- Open a pull request: Submit a pull request to the main repository for review.
-
-## 🎯 **Feature Requests**
-
-Have an idea for a new feature? We'd love to hear from you! Please [open an issue](https://github.com/CJskii/next-web3-template/issues) with a detailed description of the feature you'd like to see added to this template.
-
-Feel free to include:
-
-- The use case or problem the feature solves.
-- How it fits within the current goals of the template.
-- Any relevant links or references that may help explain your request.
-
----
-
-## 🔧 **Project Structure**
-
-```bash
-next-web3-template/
-│
-├── public/                # Public assets (e.g., favicon)
-│   └── favicon.ico
-├── src/                   # Source files
-│   ├── assets/            # Other assets
-│   │   ├── icons/         # Icon assets
-│   │   │   └── social.tsx
-│   │   └── images/        # Image assets
-│   ├── components/        # UI components
-│   │   ├── navigation/    # Navigation elements
-│   │   │   ├── header-sheet.tsx
-│   │   │   ├── navbar.tsx
-│   │   │   └── navigation-menu.tsx
-│   │   └── ui/            # UI elements and components
-│   │       ├── button.tsx
-│   │       ├── connect-button.tsx
-│   │       ├── dropdown-menu.tsx
-│   │       ├── separator.tsx
-│   │       ├── sheet.tsx
-│   │       ├── theme-toggler.tsx
-│   │       ├── typography.tsx
-│   │       └── footer.tsx
-│   ├── lib/               # Utility functions and configurations
-│   │   └── utils.ts
-│   ├── pages/             # Next.js pages and API routes
-│   │   ├── api/           # API routes (e.g., NextAuth)
-│   │   │   └── auth/
-│   │   │       └── [...nextauth].ts
-│   │   ├── example/       # Example pages
-│   │   │   └── index.tsx
-│   │   ├── _app.tsx       # Next.js custom App component
-│   │   ├── 404.tsx        # 404 page
-│   │   └── index.tsx      # Homepage
-│   ├── styles/            # Global and module styles
-│   │   └── globals.css
-│   └── wagmi.ts           # Wagmi configuration for Web3
-├── .env.example           # Example environment variables
-├── .gitignore             # Files and directories to ignore in Git
-├── bun.lockb              # Bun lock file for dependencies
-├── components.json        # Shadcn component configuration
-├── next-env.d.ts          # Next.js environment types
-├── next.config.js         # Next.js configuration
-├── package.json           # Project dependencies and scripts
-├── postcss.config.js      # PostCSS configuration for TailwindCSS
-├── README.md              # Project documentation
-├── tailwind.config.ts     # TailwindCSS configuration
-└── tsconfig.json          # TypeScript configuration
-
-```
-
----
-
-## 📃 **License**
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 📢 **Contact**
-
-For any questions or inquiries, feel free to reach out via [GitHub issues](https://github.com/yourusername/next-web3-template/issues) or open a discussion. We're happy to hear from the community and help with any issues you may encounter.
+Private handoff notes, unpublished source and generated review records stay out
+of version control. Local commits do not grant approval to push, deploy or
+publish an article.
