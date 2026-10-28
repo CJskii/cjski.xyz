@@ -1,0 +1,36 @@
+---
+import { siteConfig } from '../../config/site.ts';
+import { generateJsonLdGraph, serializeJsonLd, type JsonLdOptions } from '../../lib/seo.ts';
+import { getCanonicalUrl } from '../../lib/urls.ts';
+
+interface Props {
+  post?: JsonLdOptions['post'];
+  authors?: JsonLdOptions['authors'];
+  canonicalPath?: string;
+  title?: string;
+  description?: string;
+}
+
+const {
+  post,
+  authors = [],
+  canonicalPath = Astro.url.pathname,
+  title = siteConfig.title,
+  description = siteConfig.description,
+} = Astro.props;
+
+const siteOrigin = siteConfig.origin;
+const canonicalUrl = getCanonicalUrl(canonicalPath, siteOrigin);
+
+const graph = generateJsonLdGraph({
+  post,
+  authors,
+  canonicalUrl,
+  pageTitle: title,
+  pageDescription: description,
+  siteOrigin,
+});
+
+const serializedJsonLd = serializeJsonLd(graph);
+---
+<script type="application/ld+json" set:html={serializedJsonLd}></script>

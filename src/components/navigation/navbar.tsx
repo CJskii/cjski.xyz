@@ -1,138 +1,87 @@
-// import logoDark from "@/assets/dark-logo.svg";
-// import logoLight from "@/assets/light-logo.svg";
-// import logo from "@/assets/logo-symbol.svg";
-import Image from "next/image";
 import Link from "next/link";
-import { ThemeToggler } from "../ui/theme-toggler";
-import { Button } from "../ui/button";
-import { HeaderSheet } from "./header-sheet";
-import { ConnectWalletButton } from "@/components/ui/connect-button";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Typography } from "../ui/typography";
-import React from "react";
-import { CtaButtonNavbar } from "../ui/cta-button";
-
-interface NavLink {
-  label: string;
-  href: string;
-}
-
-const linkData: NavLink[] = [
-  {
-    label: "Contracts",
-    href: "/contracts",
-  },
-  {
-    label: "Projects",
-    href: "/projects",
-  },
-  {
-    label: "Contact Me",
-    href: "/contact",
-  },
-];
-
-export const Navbar: React.FC = () => {
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { Sun, Moon, Menu, X } from "lucide-react";
+import { navigation, site } from "@/lib/site";
+export function Navbar() {
+  const { asPath } = useRouter();
+  const [open, setOpen] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  useEffect(() => {
+    setOpen(false);
+  }, [asPath]);
+  useEffect(() => {
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        document.getElementById("menu-toggle")?.focus();
+      }
+    };
+    if (open) document.addEventListener("keydown", escape);
+    return () => document.removeEventListener("keydown", escape);
+  }, [open]);
   return (
-    <div className="fixed z-50 flex w-full justify-between items-center border-b border-neutral-400/50 bg-white/50 p-4 backdrop-blur-xl dark:bg-black/50 md:px-16 md:py-4">
-      <div className="flex-1 hidden md:block">
-        <Link href="/" className="flex items-center justify-start">
-          {/* 
-          @
-          @@
-          @@@
-          @@@@ Replace Typography component with theme aware Image components  
-          @@@
-          @@
-          @
-          */}
-          {/* <Image
-            src={logoDark}
-            alt="dark mode logo"
-            className="block w-40 dark:hidden"
-          />
-          <Image
-            src={logoLight}
-            alt="light mode logo"
-            className="hidden w-40 dark:block"
-          /> */}
-          <Typography variant="h4" className="font-bold tracking-widest">
-            cjski.xyz
-          </Typography>
+    <header className="site-header">
+      <div className="header-inner">
+        <Link href="/" className="wordmark">
+          {site.name}
+          <span className="wordmark-dot" aria-hidden="true" />
         </Link>
-      </div>
-      <Link href={"/"} className="md:hidden">
-        {/* 
-          @
-          @@
-          @@@
-          @@@@ Replace Typography component with theme aware Image component for mobile view  
-          @@@
-          @@
-          @
-          */}
-        {/* <Image
-          src={logo}
-          alt="mobile logo icon"
-          className="block md:hidden"
-          width={30}
-          height={30}
-        /> */}
-        <Typography variant="h4" className="font-bold">
-          cjski.xyz
-        </Typography>
-      </Link>
-      <div className="flex-1 justify-center hidden items-center gap-3 lg:flex">
-        <NaviLinks />
-      </div>
-
-      <div className="flex-1  justify-end items-center gap-3 hidden  lg:flex">
-        <ThemeToggler />
-        {/* <ConnectWalletButton /> */}
-        <CtaButtonNavbar />
-      </div>
-
-      <div className="block lg:hidden">
-        <HeaderSheet />
-      </div>
-    </div>
-  );
-};
-
-export const NaviLinks: React.FC = () => {
-  return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        {linkData.map((navLink, index) => (
-          <NavigationMenuItem key={index}>
-            <Link href={navLink.href} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                {navLink.label}
-              </NavigationMenuLink>
+        <nav
+          id="primary-nav"
+          className={open ? "primary-nav is-open" : "primary-nav"}
+          aria-label="Main navigation"
+        >
+          {navigation.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={
+                asPath.split(/[?#]/)[0].replace(/\/$/, "") === link.href
+                  ? "page"
+                  : undefined
+              }
+            >
+              {link.label}
             </Link>
-          </NavigationMenuItem>
-        ))}
-      </NavigationMenuList>
-    </NavigationMenu>
+          ))}
+        </nav>
+        <div className="header-actions">
+          <a
+            className="booking-nav"
+            href={site.booking}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book a call
+          </a>
+          <button
+            className="theme-button"
+            aria-label="Switch colour theme"
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
+          >
+            <Sun className="theme-sun" size={18} aria-hidden="true" />
+            <Moon className="theme-moon" size={18} aria-hidden="true" />
+          </button>
+          <button
+            id="menu-toggle"
+            className="menu-toggle"
+            aria-label="Menu"
+            aria-expanded={open}
+            aria-controls="primary-nav"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? (
+              <X size={21} aria-hidden="true" />
+            ) : (
+              <Menu size={21} aria-hidden="true" />
+            )}
+          </button>
+        </div>
+      </div>
+    </header>
   );
-};
-
-export const MobileNavLinks: React.FC = () => {
-  return (
-    <>
-      {linkData.map((navLink, index) => (
-        <React.Fragment key={index}>
-          <Link href={navLink.href} passHref>
-            <Button className="w-full">{navLink.label}</Button>
-          </Link>
-        </React.Fragment>
-      ))}
-    </>
-  );
-};
+}

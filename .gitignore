@@ -26,6 +26,9 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
+.env
+.env.*
+!.env.example
 .env.local
 .env.development.local
 .env.test.local
@@ -36,3 +39,26 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Unpublished source must not enter this public source repository.
+/content/private/
+
+# Local handoff, operational notes and generated review artifacts are private.
+/WEBSITE_HANDOFF.md
+/docs/website/*
+!/docs/website/BRAND_ASSETS.md
+
+# Generated Astro build; drafts remain under content/private.
+/.generated/
+/public/blog/
+/blog/.astro/
+/blog/node_modules/
+
+# Local Python adapter test caches.
+__pycache__/
+*.pyc
+
+# Internal publishing plans and operator handoffs stay local.
+/docs/BLOG_PUBLISHING.md
+/blog/PROVENANCE.md
+/integrations/hermes/WEBSITE_PUBLICATION.md

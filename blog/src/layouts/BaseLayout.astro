@@ -1,0 +1,11 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import SeoHead from '../components/seo/SeoHead.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import '../styles/global.css';
+const {title,description,canonicalPath,noindex=false,type='website',image='/static/share.png',post,authors=[]}=Astro.props;
+---
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script is:inline>try{const theme=localStorage.getItem('theme')||'light';const dark=theme==='dark'||(theme==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',dark);document.documentElement.style.colorScheme=dark?'dark':'light';}catch{}</script>
+<meta name="theme-color" content="#f3f5f3"/><link rel="icon" href="/favicon.svg"/><SeoHead title={title} description={description} canonicalPath={canonicalPath} noindex={noindex} type={type} image={image} publishedTime={post?.data?.draft?undefined:post?.data?.publishedAt?.toISOString()}/><JsonLd post={post} authors={authors} canonicalPath={canonicalPath} title={title} description={description}/></head><body><a class="skip-link" href="#main-content">Skip to content</a>{noindex&&<div class="review-banner">Private draft preview — publication is not authorised.</div>}<Header/><main id="main-content" class="page-shell" tabindex="-1"><slot/></main><Footer/></body></html>

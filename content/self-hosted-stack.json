@@ -1,0 +1,62 @@
+[
+  {
+    "id": "models",
+    "title": "Local models",
+    "services": ["Ollama", "Open WebUI"],
+    "purpose": "Browser interface & model serving"
+  },
+  {
+    "id": "agents",
+    "title": "Agents",
+    "services": ["Hermes", "Hermes Web UI"],
+    "purpose": "Agent runtime & browser interface"
+  },
+  {
+    "id": "containers",
+    "title": "Containers",
+    "services": ["Docker", "Coolify", "Portainer", "Watchtower"],
+    "purpose": "Deployment, inspection & updates"
+  },
+  {
+    "id": "access",
+    "title": "Access",
+    "services": ["Traefik", "Cloudflare Tunnel", "Pi-hole"],
+    "purpose": "DNS, proxying & remote access"
+  },
+  {
+    "id": "monitoring",
+    "title": "Monitoring",
+    "services": ["Uptime Kuma", "Glances", "Speedtest Tracker"],
+    "purpose": "Availability, host health & connectivity"
+  },
+  {
+    "id": "storage",
+    "title": "Files",
+    "services": ["Nextcloud", "Samba"],
+    "purpose": "File sync & shared storage"
+  },
+  {
+    "id": "media",
+    "title": "Media",
+    "services": ["Jellyfin", "Plex"],
+    "purpose": "Personal media libraries"
+  },
+  {
+    "id": "data",
+    "title": "Data",
+    "services": ["PostgreSQL", "MariaDB", "MySQL", "Redis"],
+    "purpose": "Application persistence & caching"
+  },
+  {
+    "id": "automation",
+    "title": "Automation",
+    "services": ["Home Assistant", "n8n", "ntfy"],
+    "purpose": "Home automation, workflows & notifications"
+  },
+  {
+    "id": "utilities",
+    "title": "Utilities",
+    "services": ["Vaultwarden", "IT-Tools", "PrivateBin", "DocuSeal"],
+    "purpose": "Passwords, documents & everyday tools"
+  }
+]

@@ -1,0 +1,13 @@
+---
+import { getCollection,render } from 'astro:content';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import { calculateReadingTime } from '../lib/publication.ts';
+export async function getStaticPaths(){
+ const posts=await getCollection('posts');
+ return posts.filter(p=>process.env.BLOG_PRIVATE_PREVIEW==='1'||(!p.data.draft&&!p.data.fixture&&p.data.publicationAuthorised&&p.data.publishedAt<=new Date())).map(post=>({params:{slug:post.data.slug},props:{post}}));
+}
+const {post}=Astro.props;
+const {Content,headings}=await render(post);
+const authors=[{id:'cjski',data:{name:'CJSKI',avatar:{src:'/static/avatar.png'},bio:'Software, AI systems and self-hosted tools.',sameAs:['https://x.com/cjski_']}}];
+---
+<ArticleLayout post={post} authors={authors} headings={headings} readingTime={calculateReadingTime(post.body??'')}><Content /></ArticleLayout>

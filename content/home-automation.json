@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Lighting",
+    "description": "Lights throughout the house."
+  },
+  {
+    "title": "Heating",
+    "description": "Scheduled heating."
+  },
+  {
+    "title": "Security notifications",
+    "description": "Camera alerts and my custom-built security dashboard."
+  },
+  {
+    "title": "Reminders",
+    "description": "Bin collection reminders."
+  },
+  {
+    "title": "Solar",
+    "description": "Monitoring solar-panel generation."
+  },
+  {
+    "title": "Homelab",
+    "description": "Monitoring the lab and hosted services."
+  }
+]

@@ -1,47 +1,151 @@
-import { NextPage } from "next";
-import { PageLayout } from "@/components/page-layout";
-import { Typography } from "@/components/ui/typography";
-import { useRouter } from "next/router";
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+} from "next";
+import Link from "next/link";
 import Image from "next/image";
-import { ProjectWrapper } from "@/components/projects/project-details";
-
-const ProjectDetailPage: NextPage = () => {
-  const router = useRouter();
-
-  const { projectId } = router.query;
-
+import { PageLayout } from "@/components/page-layout";
+import { ProjectCover } from "@/components/projects/project-cover";
+import { projects, type Project } from "@/lib/projects";
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: projects.map((p) => ({ params: { projectId: String(p.id) } })),
+  fallback: false,
+});
+export const getStaticProps: GetStaticProps<{ project: Project }> = async ({
+  params,
+}) => {
+  const project = projects.find((p) => String(p.id) === params?.projectId);
+  return project ? { props: { project } } : { notFound: true };
+};
+export default function ProjectDetail({
+  project,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <PageLayout
-      title="Project Detail"
-      description="This is the project detail page"
-      flexDirection="col"
-      justify="start"
-      align="center"
-      gap={12}
-    >
-      <ProjectWrapper>
-        <Typography variant="h1" className="text-left">
-          Project Detail
-        </Typography>
-        <Typography variant="h2" className="text-left">
-          {projectId}
-        </Typography>
-        <Image
-          src="/assets/images/placeholder.png"
-          alt="Project Image"
-          width={400}
-          height={300}
-        />
-        <Typography variant="small" className="text-left">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          voluptates, quae, laboriosam, doloremque quod dolorum aperiam
-          consequuntur quos tempora quidem voluptatum. Quisquam voluptates,
-          quae, laboriosam, doloremque quod dolorum aperiam consequuntur quos
-          tempora quidem voluptatum.
-        </Typography>
-      </ProjectWrapper>
+    <PageLayout title={project.title} description={project.summary}>
+      <header className="page-heading">
+        <Link className="back-link" href="/projects">
+          Projects
+        </Link>
+        <h1>{project.title}</h1>
+        <p className="lead">{project.summary}</p>
+        {project.contribution && (
+          <p className="project-contribution">{project.contribution}</p>
+        )}
+        <div className="project-stack">
+          {project.stack.map((technology) => (
+            <span key={technology}>{technology}</span>
+          ))}
+        </div>
+        <div className="hero-actions">
+          {project.demoAvailable && (
+            <a
+              className="button-primary"
+              href={project.demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open demo
+            </a>
+          )}
+          {project.codeAvailable && (
+            <a
+              className="button-secondary"
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Source code
+            </a>
+          )}
+        </div>
+      </header>
+      {project.cover && <ProjectCover project={project} expanded />}
+      {project.image && (
+        <div className="project-detail-image">
+          <Image
+            src={project.image}
+            alt={project.imageAlt || project.title}
+            width={project.imageWidth || 1360}
+            height={project.imageHeight || 900}
+            sizes="(max-width:1200px) 100vw, 1140px"
+            priority
+          />
+        </div>
+      )}
+      <div className="project-description">
+        {project.caseStudy ? (
+          <>
+            <section className="project-scope">
+              <h2>The problem</h2>
+              <p>{project.caseStudy.problem}</p>
+            </section>
+            <section className="project-scope">
+              <h2>My contribution</h2>
+              <p>{project.caseStudy.contribution}</p>
+            </section>
+            <section className="project-scope">
+              <h2>Architecture</h2>
+              <div className="case-architecture">
+                {project.caseStudy.architecture.map((part) => (
+                  <div key={part.title}>
+                    <h3>{part.title}</h3>
+                    <p>{part.text}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section className="project-scope">
+              <h2>Integration decisions</h2>
+              {project.caseStudy.decisions.map((decision) => (
+                <div className="case-decision" key={decision.title}>
+                  <h3>{decision.title}</h3>
+                  <p>{decision.text}</p>
+                </div>
+              ))}
+            </section>
+            <section className="project-scope">
+              <h2>Evidence and current limits</h2>
+              <p>{project.caseStudy.verification}</p>
+              <ul>
+                {project.caseStudy.limitations.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          </>
+        ) : (
+          <p>{project.description}</p>
+        )}
+        {project.scope && !project.caseStudy && (
+          <section className="project-scope">
+            <h2>What’s included</h2>
+            <ul>
+              {project.scope.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+        {project.evidence && (
+          <section className="project-evidence">
+            <h2>Inside the repository</h2>
+            <div>
+              {project.evidence.map((item) => (
+                <a
+                  key={item.path}
+                  href={`${project.githubLink}/blob/main/${item.path}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <strong>{item.label}</strong>
+                  <span>{item.path}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
     </PageLayout>
   );
-};
-
-export default ProjectDetailPage;
+}

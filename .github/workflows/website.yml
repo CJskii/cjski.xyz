@@ -1,0 +1,43 @@
+name: Website checks and release
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+permissions:
+  contents: read
+concurrency:
+  group: website-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:blog
+      - run: python3 -m unittest discover -s integrations/hermes -p 'test_*.py'
+      - run: npm run build
+      - run: npm run typecheck
+      - name: Request deployment after successful checks
+        if: github.event_name == 'push' && vars.ENABLE_COOLIFY_DEPLOY == 'true'
+        env:
+          COOLIFY_DEPLOY_WEBHOOK: ${{ secrets.COOLIFY_DEPLOY_WEBHOOK }}
+          COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
+        run: |
+          test -n "$COOLIFY_DEPLOY_WEBHOOK"
+          test -n "$COOLIFY_TOKEN"
+          curl --fail-with-body --silent --show-error --request POST "$COOLIFY_DEPLOY_WEBHOOK" --header "Authorization: Bearer $COOLIFY_TOKEN" > "$RUNNER_TEMP/coolify-deployment.json"
+      - name: Verify public articles and send receipts
+        if: github.event_name == 'push' && vars.ENABLE_COOLIFY_DEPLOY == 'true'
+        env:
+          TELEGRAM_CONTENT_TOKEN: ${{ secrets.TELEGRAM_CONTENT_TOKEN }}
+          TELEGRAM_FOUNDER_CHAT_ID: ${{ secrets.TELEGRAM_FOUNDER_CHAT_ID }}
+        run: node scripts/blog/verify-live.mjs --wait --changed-only

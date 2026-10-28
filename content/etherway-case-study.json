@@ -1,0 +1,38 @@
+{
+  "problem": "Cross-chain activity involves different networks, wallets, fees and protocol rules. Etherway brings swaps, token and NFT transfers, and gas refuelling into one application.",
+  "contribution": "I built Etherway end to end, including the interface and its integrations.",
+  "architecture": [
+    {
+      "title": "Application interface",
+      "text": "Next.js and TypeScript components manage network and token selection, quotes, wallet state and transaction-status views."
+    },
+    {
+      "title": "Protocol integrations",
+      "text": "Squid routing and provider-specific LayerZero V2 and Hyperlane handlers handle route execution, fee quotes and contract calls."
+    },
+    {
+      "title": "Application data",
+      "text": "Prisma models a PostgreSQL data layer for users, interactions, referrals and project/task records."
+    }
+  ],
+  "decisions": [
+    {
+      "title": "Separate quoting, execution and status",
+      "text": "The bridge keeps route-fetching, transaction-execution and status-modal state separate. That makes an asynchronous cross-chain operation visible as more than a single button click."
+    },
+    {
+      "title": "Keep protocol rules in adapters",
+      "text": "Provider-specific handlers contain differences in fee quoting and contract calls. This keeps those differences out of the shared interface, while leaving separate integration paths to maintain."
+    },
+    {
+      "title": "Reconcile dependent network selections",
+      "text": "The gas-refuel interface checks valid destination networks when the source changes and resets an incompatible selection. Network choice changes the valid operation, not just its label."
+    }
+  ],
+  "verification": "The public repository includes the bridge interface, refuelling flow, protocol adapters and database models. The source links below show each part.",
+  "limitations": [
+    "The hosted demo could not be reached during the latest link check.",
+    "Live workflows depend on external RPC endpoints, routing services and bridge providers.",
+    "Network and provider support should be checked against current deployments before reusing the code."
+  ]
+}

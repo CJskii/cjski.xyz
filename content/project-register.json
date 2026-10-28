@@ -1,0 +1,76 @@
+[
+  {
+    "id": "token-playground",
+    "area": "featured",
+    "homepage": true,
+    "status": "Public source",
+    "evidenceBasis": "Public repository review",
+    "shareableScope": "Public implementation and repository links; no performance or usage claims."
+  },
+  {
+    "id": "finance-tracker",
+    "area": "featured",
+    "homepage": true,
+    "status": "Public source",
+    "evidenceBasis": "Public repository review",
+    "shareableScope": "Public implementation and repository links; no performance or usage claims."
+  },
+  {
+    "id": "self-hosted-compose",
+    "area": "featured",
+    "homepage": true,
+    "status": "Public source",
+    "evidenceBasis": "Public repository review",
+    "shareableScope": "Public implementation and repository links; no performance or usage claims."
+  },
+  {
+    "id": "api-starter-auth",
+    "area": "featured",
+    "homepage": false,
+    "status": "Public source",
+    "evidenceBasis": "Public repository review",
+    "shareableScope": "Public implementation and repository links; no performance or usage claims."
+  },
+  {
+    "id": "tweet-fetcher",
+    "area": "featured",
+    "homepage": false,
+    "status": "Public source",
+    "evidenceBasis": "Public repository review",
+    "shareableScope": "Public implementation and repository links; no performance or usage claims."
+  },
+  {
+    "id": 1,
+    "area": "earlier",
+    "homepage": false,
+    "status": "Public source",
+    "evidenceBasis": "Public repository review",
+    "shareableScope": "Public implementation and repository links; no performance or usage claims.",
+    "contribution": "Built end to end by CJSKI.",
+    "contributionBasis": "Confirmed by CJSKI in this review."
+  },
+  {
+    "id": 2,
+    "area": "earlier",
+    "homepage": false,
+    "status": "Public source",
+    "evidenceBasis": "Public repository review",
+    "shareableScope": "Public implementation and repository links; no performance or usage claims."
+  },
+  {
+    "id": "tg-omnichain-mini-app",
+    "area": "earlier",
+    "homepage": false,
+    "status": "Public source",
+    "evidenceBasis": "Public repository review",
+    "shareableScope": "Public implementation and repository links; no performance or usage claims."
+  },
+  {
+    "id": 4,
+    "area": "earlier",
+    "homepage": false,
+    "status": "Public source",
+    "evidenceBasis": "Public repository review",
+    "shareableScope": "Public implementation and repository links; no performance or usage claims."
+  }
+]
