@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { ColumnDef } from "@tanstack/react-table";
+import { contractFeatures } from "./features";
 import { ArrowUpDown } from "lucide-react";
 
 export type Contract = {
@@ -14,18 +15,19 @@ export type Contract = {
   contractNumber: number;
 };
 
-export const columns: ColumnDef<Contract>[] = [
+export const columns: ColumnDef<typeof contractFeatures, Contract>[] = [
   {
     accessorKey: "chainId",
     header: ({ column }) => {
       return (
-        <div
+        <button
+          type="button"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="flex justify-start items-center cursor-pointer hover:underline hover:font-semibold"
         >
           Chain ID
           <ArrowUpDown className="ml-2 h-4 w-4" />
-        </div>
+        </button>
       );
     },
   },
@@ -33,13 +35,14 @@ export const columns: ColumnDef<Contract>[] = [
     accessorKey: "chain",
     header: ({ column }) => {
       return (
-        <div
+        <button
+          type="button"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="flex justify-start items-center cursor-pointer hover:underline hover:font-semibold"
         >
           Chain Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
-        </div>
+        </button>
       );
     },
     cell: ({ row }) => (
@@ -59,13 +62,14 @@ export const columns: ColumnDef<Contract>[] = [
     accessorKey: "address",
     header: ({ column }) => {
       return (
-        <div
+        <button
+          type="button"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="flex justify-start items-center cursor-pointer hover:underline hover:font-semibold"
         >
           Contract Address
           <ArrowUpDown className="ml-2 h-4 w-4" />
-        </div>
+        </button>
       );
     },
     cell: ({ row }) => (
@@ -83,13 +87,14 @@ export const columns: ColumnDef<Contract>[] = [
     accessorKey: "contractName",
     header: ({ column }) => {
       return (
-        <div
+        <button
+          type="button"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="flex justify-start items-center cursor-pointer hover:underline hover:font-semibold"
         >
           Contract Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
-        </div>
+        </button>
       );
     },
   },

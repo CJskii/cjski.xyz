@@ -1,0 +1,15 @@
+{
+  "name": "CJSKI",
+  "short_name": "CJSKI",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f3f5f3",
+  "theme_color": "#f3f5f3",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

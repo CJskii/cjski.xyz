@@ -33,7 +33,7 @@ import {
   blast,
   gnosis,
   mode,
-} from "wagmi/chains";
+} from "viem/chains";
 
 import deployments from "./deployed-contracts.json";
 
@@ -190,7 +190,7 @@ export const networks = [
   },
 ].map((network) => {
   const deployment = Object.entries(deployments).find(
-    ([chainId, d]) => Number(chainId) === network.id
+    ([chainId, d]) => Number(chainId) === network.id,
   )?.[1];
   return {
     ...network,

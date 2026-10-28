@@ -1,29 +1,19 @@
-import { PageLayout } from "@/components/page-layout";
-import { Typography } from "@/components/ui/typography";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { NextPage } from "next";
-
-// TODO: Fix 404 page causing entire layout to re-render
-
-const Custom404: NextPage = () => {
+import { PageLayout } from "@/components/page-layout";
+export default function NotFound() {
   return (
     <PageLayout
-      title="Page Not Found"
-      description="This page could not be found"
-      justify="center"
+      title="Page not found"
+      description="This page could not be found."
+      noindex
     >
-      <div className="flex flex-col justify-center items-center gap-8 text-center">
-        <Typography variant="h1">404 - Page Not Found</Typography>
-        <Typography variant="paragraph">
-          Oops! The page you are looking for does not exist or has been moved.
-        </Typography>
-        <Link href="/" passHref>
-          <Button className="gap-2">Go Back to Homepage</Button>
+      <header className="page-heading">
+        <h1>Page not found.</h1>
+        <p className="lead">Check the address, or return to the homepage.</p>
+        <Link className="button-primary" href="/">
+          Go home
         </Link>
-      </div>
+      </header>
     </PageLayout>
   );
-};
-
-export default Custom404;
+}
