@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { unified } from "@astrojs/markdown-remark";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import responsiveFigures from "../scripts/blog/responsive-figures.mjs";
+import sourceLinks from "../scripts/blog/source-links.mjs";
 export default defineConfig({
   compressHTML: true,
   site: "https://cjski.dev",
@@ -38,6 +39,7 @@ export default defineConfig({
             },
           },
         ],
+        sourceLinks,
       ],
     }),
   },
