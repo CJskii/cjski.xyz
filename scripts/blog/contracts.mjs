@@ -212,6 +212,7 @@ export async function rendererDigest(repo) {
     "package-lock.json",
     "src/styles/globals.css",
     "src/lib/site.ts",
+    "public/static/avatar.png",
   ])
     entries.push([p, sha(await readFile(path.join(repo, p)))]);
   return sha(

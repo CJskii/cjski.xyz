@@ -49,6 +49,21 @@ try {
       await document.fonts.ready;
       await Promise.all([...document.images].map((i) => i.decode()));
     });
+    const avatar = page.locator(".blog-article-author img");
+    if (
+      (await avatar.count()) !== 1 ||
+      !(await avatar.evaluate(
+        (img) => img.complete && img.naturalWidth > 0 && !!img.alt,
+      ))
+    )
+      throw Error("Author picture is missing or failed to load");
+    const share = page.getByRole("button", {
+      name: "Share article",
+      exact: true,
+    });
+    const copy = page.getByRole("button", { name: "Copy link", exact: true });
+    if (!(await share.isVisible()) || !(await copy.isVisible()))
+      throw Error("Article sharing controls missing");
     const result = await page.evaluate(() => ({
       overflow: document.documentElement.scrollWidth > innerWidth,
       images: [...document.images].every(
@@ -158,7 +173,85 @@ try {
       )
         throw Error("Mobile menu escape failed");
     }
-    checks.push({ width, ...result, errors, accessibility });
+    await page.evaluate(() => {
+      Object.defineProperty(navigator, "clipboard", {
+        configurable: true,
+        value: {
+          writeText: async (text) => {
+            window.__copiedArticle = text;
+          },
+        },
+      });
+      Object.defineProperty(navigator, "share", {
+        configurable: true,
+        value: undefined,
+      });
+    });
+    await copy.click();
+    if (
+      (await page.evaluate(() => window.__copiedArticle)) !==
+      record.canonical_url
+    )
+      throw Error(
+        "Copy link must use the public canonical, never the private preview",
+      );
+    await page.evaluate(() =>
+      Object.defineProperty(navigator, "share", {
+        configurable: true,
+        value: async (data) => {
+          window.__sharedArticle = data;
+        },
+      }),
+    );
+    await share.click();
+    const shared = await page.evaluate(() => window.__sharedArticle);
+    if (shared?.url !== record.canonical_url || shared?.title !== record.title)
+      throw Error("Native share data mismatch");
+    await page.evaluate(() => {
+      window.__copiedArticle = null;
+      Object.defineProperty(navigator, "share", {
+        configurable: true,
+        value: async () => {
+          throw new DOMException("Cancelled", "AbortError");
+        },
+      });
+    });
+    await share.click();
+    if ((await page.evaluate(() => window.__copiedArticle)) !== null)
+      throw Error("Cancelling native share must not copy unexpectedly");
+    await page.evaluate(() =>
+      Object.defineProperty(navigator, "clipboard", {
+        configurable: true,
+        value: {
+          writeText: async () => {
+            throw Error("Clipboard denied");
+          },
+        },
+      }),
+    );
+    await copy.click();
+    const manual = page.getByRole("textbox", {
+      name: "Article link",
+      exact: true,
+    });
+    if (
+      !(await manual.isVisible()) ||
+      (await manual.inputValue()) !== record.canonical_url
+    )
+      throw Error("Clipboard denial needs a manual copy fallback");
+    checks.push({
+      width,
+      ...result,
+      errors,
+      accessibility,
+      author_avatar: true,
+      sharing: {
+        canonical_copy: true,
+        native_share: true,
+        cancelled_share: true,
+        manual_fallback: true,
+      },
+    });
     await context.close();
   }
   const review = {

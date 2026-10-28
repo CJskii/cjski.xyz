@@ -124,3 +124,50 @@
   margin-block: 0.8rem;
   overflow-wrap: anywhere;
 }
+
+.blog-article-meta {
+  align-items: center;
+}
+.blog-article-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.blog-article-author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.article-share {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.65rem;
+}
+.article-share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+.article-share button {
+  cursor: pointer;
+}
+.article-share [hidden] {
+  display: none !important;
+}
+.article-share-status {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--secondary-text);
+}
+.article-share-status:empty {
+  display: none;
+}
+.article-share-url {
+  width: min(100%, 36rem);
+  padding: 0.65rem;
+  background: var(--background);
+  color: inherit;
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+}

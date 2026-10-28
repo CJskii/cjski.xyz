@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import path from "node:path";
 const root = process.env.WEBSITE_PUBLICATION_REGISTRY;
 if (!root) throw Error("Configure private WEBSITE_PUBLICATION_REGISTRY");
+let synced = false;
 for (const file of await readdir(root)) {
   if (!/^[a-f0-9]{32}\.decision\.json$/.test(file)) continue;
   const id = file.slice(0, 32),
@@ -22,6 +23,22 @@ for (const file of await readdir(root)) {
     throw Error("Missing publisher draft directory");
   // The submit command remains dry-run unless the operator explicitly enables execution.
   const execute = process.env.WEBSITE_PUBLISHER_ENABLED === "1";
+  if (execute && !synced) {
+    const git = (args) => {
+      const r = spawnSync("git", args, { encoding: "utf8" });
+      if (r.status !== 0)
+        throw Error("Publisher base sync failed; no submission attempted");
+      return r.stdout.trim();
+    };
+    if (git(["status", "--porcelain"]))
+      throw Error("Publisher checkout must be clean");
+    const base = process.env.WEBSITE_BASE_BRANCH || "main";
+    if (!/^[a-zA-Z0-9][a-zA-Z0-9/_.-]*$/.test(base))
+      throw Error("Invalid publisher base branch");
+    git(["fetch", "origin", base]);
+    git(["merge", "--ff-only", "FETCH_HEAD"]);
+    synced = true;
+  }
   const result = spawnSync(
     process.execPath,
     [

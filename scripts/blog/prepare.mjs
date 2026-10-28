@@ -14,6 +14,11 @@ export async function prepare(repo = process.cwd(), previewDirectory = null) {
   await rm(generated, { recursive: true, force: true });
   await mkdir(path.join(generated, "content"), { recursive: true });
   await mkdir(path.join(generated, "public/media"), { recursive: true });
+  await mkdir(path.join(generated, "public/static"), { recursive: true });
+  await writeFile(
+    path.join(generated, "public/static/avatar.png"),
+    await safeRead(repo, "public/static/avatar.png"),
+  );
   const releases = path.join(repo, "content/blog/releases");
   const dirs = previewDirectory
     ? [previewDirectory]

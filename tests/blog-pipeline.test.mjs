@@ -29,6 +29,7 @@ async function fixture(t) {
     "content/blog/releases",
     "src/styles",
     "src/lib",
+    "public/static",
   ])
     await mkdir(path.join(repo, folder), { recursive: true });
   for (const f of [
@@ -36,6 +37,7 @@ async function fixture(t) {
     "package-lock.json",
     "src/styles/globals.css",
     "src/lib/site.ts",
+    "public/static/avatar.png",
   ])
     await writeFile(path.join(repo, f), "{}");
   await mkdir(path.join(bundle, "assets"), { recursive: true });
@@ -161,6 +163,15 @@ test("approval binds renderer and released asset bytes", async (t) => {
     /Renderer changed/,
   );
   await rm(path.join(repo, "blog/change.txt"));
+  await writeFile(
+    path.join(repo, "public/static/avatar.png"),
+    "changed author photo",
+  );
+  await assert.rejects(
+    promote(draft.directory, decision, repo),
+    /Renderer changed/,
+  );
+  await writeFile(path.join(repo, "public/static/avatar.png"), "{}");
   await promote(draft.directory, decision, repo);
   await writeFile(
     path.join(repo, "content/blog/releases/useful-sample/assets/figure.svg"),
