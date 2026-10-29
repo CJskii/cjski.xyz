@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="1050" viewBox="0 0 390 1050" role="img" aria-labelledby="title desc">
+<title id="title">One lab, several useful jobs</title>
+<desc id="desc">Home-lab overview grouping files and storage, media, home automation, networking and hosting, everyday tools, and AI experiments. The main jobs in the lab, grouped by purpose rather than network layout. This is a snapshot of configured services and explored work, not a claim of daily use. Home automation reflects reported dashboard work, not a newly verified live setup.</desc>
+<rect width="390" height="1050" rx="16" fill="#f7faf9"/>
+<g font-family="DejaVu Sans, sans-serif">
+<text x="24" y="45" font-size="28" font-weight="700" fill="#123b43">One lab,</text>
+<text x="24" y="80" font-size="28" font-weight="700" fill="#123b43">several useful jobs</text>
+<text x="24" y="113" font-size="17" font-weight="400" fill="#45616a">Useful services + experiments</text>
+<g data-claim="M01">
+<rect x="24" y="144" width="342" height="126" rx="14" fill="#ffffff" stroke="#c9d9d9" stroke-width="1.5"/>
+<g transform="translate(42 163) scale(0.67)" stroke="#123b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" aria-hidden="true"><path d="M3 10h13l4 5h25v29H3z"/><path d="M3 19h42"/></g>
+<text x="88" y="181" font-size="21" font-weight="700" fill="#123b43">Files &amp; storage</text>
+<text x="44" y="220" font-size="18" font-weight="400" fill="#45616a">Keep and share files</text>
+</g>
+<g data-claim="M02">
+<rect x="24" y="286" width="342" height="126" rx="14" fill="#ffffff" stroke="#c9d9d9" stroke-width="1.5"/>
+<g transform="translate(42 305) scale(0.67)" stroke="#123b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" aria-hidden="true"><rect x="3" y="7" width="42" height="34" rx="4"/><path d="m20 16 13 8-13 8z"/></g>
+<text x="88" y="323" font-size="21" font-weight="700" fill="#123b43">Media</text>
+<text x="44" y="362" font-size="18" font-weight="400" fill="#45616a">Organise and serve</text>
+<text x="44" y="387" font-size="18" font-weight="400" fill="#45616a">a library</text>
+</g>
+<g data-claim="H01">
+<rect x="24" y="428" width="342" height="126" rx="14" fill="#ffffff" stroke="#c9d9d9" stroke-width="1.5"/>
+<g transform="translate(42 447) scale(0.67)" stroke="#123b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" aria-hidden="true"><path d="m3 23 21-18 21 18M9 20v25h30V20"/><rect x="16" y="25" width="16" height="13" rx="2"/></g>
+<text x="88" y="465" font-size="21" font-weight="700" fill="#123b43">Home automation</text>
+<text x="44" y="504" font-size="18" font-weight="400" fill="#45616a">Dashboard work</text>
+<text x="44" y="529" font-size="18" font-weight="400" fill="#45616a">(reported)</text>
+</g>
+<g data-claim="M03">
+<rect x="24" y="570" width="342" height="126" rx="14" fill="#ffffff" stroke="#c9d9d9" stroke-width="1.5"/>
+<g transform="translate(42 589) scale(0.67)" stroke="#123b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" aria-hidden="true"><rect x="3" y="5" width="42" height="13" rx="3"/><path d="M24 18v13M7 31h34M7 31v8m17-8v8m17-8v8"/><circle cx="9" cy="11.5" r="1"/></g>
+<text x="88" y="607" font-size="21" font-weight="700" fill="#123b43">Networking &amp; hosting</text>
+<text x="44" y="646" font-size="18" font-weight="400" fill="#45616a">Deploy and route</text>
+<text x="44" y="671" font-size="18" font-weight="400" fill="#45616a">services</text>
+</g>
+<g data-claim="M04">
+<rect x="24" y="712" width="342" height="126" rx="14" fill="#ffffff" stroke="#c9d9d9" stroke-width="1.5"/>
+<g transform="translate(42 731) scale(0.67)" stroke="#123b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="18" rx="3"/><rect x="27" y="5" width="18" height="18" rx="3"/><rect x="3" y="29" width="18" height="18" rx="3"/><rect x="27" y="29" width="18" height="18" rx="3"/></g>
+<text x="88" y="749" font-size="21" font-weight="700" fill="#123b43">Everyday tools</text>
+<text x="44" y="788" font-size="18" font-weight="400" fill="#45616a">Passwords, sharing</text>
+<text x="44" y="813" font-size="18" font-weight="400" fill="#45616a">and workflows</text>
+</g>
+<g data-claim="M06">
+<rect x="24" y="854" width="342" height="126" rx="14" fill="#ffffff" stroke="#c9d9d9" stroke-width="1.5"/>
+<g transform="translate(42 873) scale(0.67)" stroke="#123b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" aria-hidden="true"><path d="M3 7h42v29H26l-11 9v-9H3zM12 17h24M12 25h16"/></g>
+<text x="88" y="891" font-size="21" font-weight="700" fill="#123b43">AI experiments</text>
+<text x="44" y="930" font-size="18" font-weight="400" fill="#45616a">Models and interfaces</text>
+</g>
+</g>
+</svg>
