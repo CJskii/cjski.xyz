@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "renderer_digest": "bec6d9e3ece8763ebf2859f0574a0655c9d6fb2c850474d8722f07be5866770a",
+  "slug": "why-i-run-a-home-lab",
+  "title": "Why I run a home lab and what I actually use it for",
+  "description": "A look inside my home lab: useful self-hosted services, subscription trade-offs, how the setup connects, and where AI fits alongside everyday tools.",
+  "canonical_url": "https://cjski.dev/blog/why-i-run-a-home-lab",
+  "bundle_digest": "752aab5334bf6d9e23551861a983b18f653b199e2ad8a219b0c1b4b14ff95179",
+  "source_revision": "v4-title-and-byline",
+  "manifest_sha256": "0515be44566523ff582930de34c25e100cbf70895a82eaf1da8d6878f5f0a4ca",
+  "files": {
+    "source.md": "8011a8d2eced206970a2a06de2562c2dab80118eff92f8cf68aeae40074fbc01",
+    "article.html": "fba5510a6d161b2f760a2622ebf34c01c752f15523e6ae1601b50535ce7af82f",
+    "evidence.md": "fb1ff5cde9fba30e5d0c07ee02b1312bc30379a089738558def001504419958c",
+    "research-brief.md": "c43677cba4bb743c4fbb1e8a9f33e760b11d49f14a20643a494028265f310dc7",
+    "research-sources.json": "a3b4b28a6d50bb7f76687ab123bc81ceed544bd66c395a5bba95a33bc6bc4f08",
+    "research-claims.json": "ad463ed937f592342d637c6a8a71859abfbe91a466f21fa9bbba950286f1534a",
+    "writing-edits.md": "afe491200305218abfe095f4237c7eae0a957b480710f6c26984cbdd79194afc",
+    "editorial-brief.md": "277399561e32fb73711c43376bf33c28a3f2592a1e15ff4d2f050d61d8db48a1",
+    "seo-preflight.json": "565755c8945089669f7061dd0354ab0d62346c15a53b5c05b90c4500c9cf75b7",
+    "revision-intake.md": "0b6b3d55b7b938c22dc20c78ccdba945ea3e15571889babce3770135f6330c49",
+    "website-preview-binding.json": "cb7f2596deafa154d199c6247de84510851acf51e789fb6049d72e465879a6be",
+    "site-readiness.json": "8c13cb4f36403b1b4163cc28642b17e31d9ef2dd7b19a00734f5b7dd491df5bd",
+    "amendment.json": "9e524e28b1b06f7730dd51f564ce5fd18bfdc78697dc6004bbc840718c575fa7",
+    "targeted-browser-check.json": "75359c1cfa784b3e1e12ad46b1a8475a6d7d1afea074365f374ab61a86be76d9",
+    "base-review-cmo.json": "43625b952a2331f1a84375c0f839a6850bed026c05531fcb0cc760d8cb9bd565",
+    "base-review-qa-auditor.json": "1bfbce4471bc24e8748afe72ca4ebe620519dbb949cb384ae6a5301e3680a964",
+    "base-review-default.json": "7144f702cae73ba61054a818a8359f355505b7744a8f5c8913b89510460779fe",
+    "assets/lab-overview.svg": "ec0c556df939c9e3596fabd2edee5c5c7d00d2f7397b3626e8c209ffbb1fbd6f",
+    "assets/lab-overview-mobile.svg": "ef581a9e4683c6852e3a76339a1f3ab33612cd8cf5aef7d324c0535b7fe9f3b0",
+    "assets/media-flow.svg": "96ee2453476f987ab3ddea5bb009c014382bdc464727a256adcebd66cf6034b6",
+    "assets/media-flow-mobile.svg": "73f3b086b38e5619cd4f866074bec6be928a13eb7b877114fc1f2d58f4aecb88",
+    "assets/container-roles.svg": "9d85c35d467367f7ec27d4005fd79c47b1335a76d4f17b23d42b1574f66a5cea",
+    "assets/container-roles-mobile.svg": "71b96373224290c1d870917352284186e0657e5054ee118ce11cc9761bd76cd6"
+  },
+  "assets": [
+    {
+      "path": "assets/lab-overview.svg",
+      "alt": "Home-lab overview grouping files and storage, media, home automation, networking and hosting, everyday tools, and AI experiments.",
+      "caption": "The main jobs in the lab, grouped by purpose rather than network layout. This is a snapshot of configured services and explored work, not a claim of daily use. Home automation reflects reported dashboard work, not a newly verified live setup."
+    },
+    {
+      "path": "assets/lab-overview-mobile.svg",
+      "alt": "Home-lab overview grouping files and storage, media, home automation, networking and hosting, everyday tools, and AI experiments.",
+      "caption": "The main jobs in the lab, grouped by purpose rather than network layout. This is a snapshot of configured services and explored work, not a claim of daily use. Home automation reflects reported dashboard work, not a newly verified live setup."
+    },
+    {
+      "path": "assets/media-flow.svg",
+      "alt": "Media workflow from an Overseerr request through Sonarr or Radarr and a configured download client to the library, then Plex and viewing devices.",
+      "caption": "Overseerr manages the request; Plex serves the library. The middle steps depend on the configured download client and storage. This shows the roles, rather than a map of network connections."
+    },
+    {
+      "path": "assets/media-flow-mobile.svg",
+      "alt": "Media workflow from an Overseerr request through Sonarr or Radarr and a configured download client to the library, then Plex and viewing devices.",
+      "caption": "Overseerr manages the request; Plex serves the library. The middle steps depend on the configured download client and storage. This shows the roles, rather than a map of network connections."
+    },
+    {
+      "path": "assets/container-roles.svg",
+      "alt": "Separate roles around Docker: Coolify builds and deploys projects, Portainer manages containers and stacks, Watchtower updates selected images, and Traefik routes web requests to applications.",
+      "caption": "These are responsibilities around the containers, not successive stops in a request. A browser request goes through the configured proxy to the application; it doesn't travel through every management tool."
+    },
+    {
+      "path": "assets/container-roles-mobile.svg",
+      "alt": "Separate roles around Docker: Coolify builds and deploys projects, Portainer manages containers and stacks, Watchtower updates selected images, and Traefik routes web requests to applications.",
+      "caption": "These are responsibilities around the containers, not successive stops in a request. A browser request goes through the configured proxy to the application; it doesn't travel through every management tool."
+    }
+  ],
+  "approval": {
+    "action": "publish_web",
+    "request_digest": "0aaf9f192b83b8050f89f0be0795fdc83ded35c53836e606d6520c2aaab97ba4",
+    "approved_at": "2026-10-29T00:11:08.411874+00:00",
+    "decision_digest": "0580988331e131faa41228a4522c0f6c059931db4972b2634e146b1ab8305482"
+  }
+}
