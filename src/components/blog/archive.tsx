@@ -1,3 +1,4 @@
+import { NewsletterSignup } from "@/components/newsletter-signup";
 import Head from "next/head";
 import Image from "next/image";
 import { useMemo, useState } from "react";
@@ -279,9 +280,7 @@ export function BlogArchive({
             yourself.
           </p>
         </div>
-        <Link className="button-primary" href="/newsletter">
-          Explore the newsletter <span aria-hidden="true">↗</span>
-        </Link>
+        <NewsletterSignup />
       </aside>
     </PageLayout>
   );

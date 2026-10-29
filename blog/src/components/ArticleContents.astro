@@ -1,0 +1,42 @@
+---
+const {sections}=Astro.props;
+---
+<aside class="article-toc" data-article-contents>
+  <p class="eyebrow">In this article</p>
+  <nav aria-label="Article sections">
+    {sections.map((h:any)=><a href={'#'+h.slug} class:list={{'toc-subsection':h.depth===3}}>{h.text}</a>)}
+  </nav>
+</aside>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-article-contents]').forEach(root=>{
+    const entries=Array.from(root.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'))
+      .map(link=>({link,heading:document.getElementById(decodeURIComponent(link.hash.slice(1)))}))
+      .filter((entry):entry is {link:HTMLAnchorElement;heading:HTMLElement}=>!!entry.heading);
+    if(!entries.length)return;
+    let queued=false;
+    function update(){
+      queued=false;
+      const offset=(parseFloat(getComputedStyle(entries[0].heading).scrollMarginTop)||0)
+        +(parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0);
+      let active=entries[0];
+      for(const entry of entries){
+        if(entry.heading.getBoundingClientRect().top<=offset+2) active=entry;
+        else break;
+      }
+      for(const entry of entries){
+        if(entry===active)entry.link.setAttribute('aria-current','location');
+        else entry.link.removeAttribute('aria-current');
+      }
+    }
+    function schedule(){if(!queued){queued=true;requestAnimationFrame(update);}}
+    addEventListener('scroll',schedule,{passive:true});
+    addEventListener('resize',schedule);
+    addEventListener('hashchange',schedule);
+    addEventListener('load',schedule);
+    // Images and fonts can move headings without a scroll event.
+    const body=document.querySelector('.article-body');
+    if(body)new ResizeObserver(schedule).observe(body);
+    document.fonts.ready.then(schedule);
+    update();
+  });
+</script>

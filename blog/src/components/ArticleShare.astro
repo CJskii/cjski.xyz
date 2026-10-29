@@ -2,9 +2,9 @@
 const {url, title} = Astro.props;
 ---
 <div class="article-share" data-article-share data-url={url} data-title={title}>
-  <div class="article-share-buttons">
-    <button class="button-secondary" type="button" data-share hidden>Share article</button>
-    <button class="button-secondary" type="button" data-copy hidden>Copy link</button>
+  <div class="article-share-buttons" role="group" aria-label="Share this article">
+    <button class="article-share-tool" type="button" data-share hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 16V3m-5 5 5-5 5 5M5 13v7h14v-7"/></svg>Share</button>
+    <button class="article-share-tool" type="button" data-copy hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>Copy link</button>
   </div>
   <p class="article-share-status" role="status" aria-live="polite" data-status></p>
   <input class="article-share-url" type="url" readonly aria-label="Article link" value={url} hidden />

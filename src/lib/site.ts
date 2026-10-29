@@ -26,3 +26,9 @@ export const publicationLinks: {
   blog: string | null;
   newsletter: string | null;
 } = { blog: null, newsletter: "https://cjski.beehiiv.com/subscribe" };
+
+// Public form ID, not an API credential. Shared by Next and the Astro renderer.
+export const newsletterSignup = {
+  scriptUrl: "https://subscribe-forms.beehiiv.com/v3/loader.js",
+  formId: "ec2b6303-069c-409f-9f2a-2c2d2ec20620",
+};
