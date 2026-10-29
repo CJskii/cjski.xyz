@@ -28,9 +28,5 @@ jobs:
       - run: npm run typecheck
       # Protected main merges trigger Coolify's signed repository webhook.
       # Its REST API remains restricted to trusted IPs; CI needs no Coolify token.
-      - name: Verify public articles and send receipts
-        if: github.event_name == 'push' && vars.ENABLE_COOLIFY_DEPLOY == 'true'
-        env:
-          TELEGRAM_CONTENT_TOKEN: ${{ secrets.TELEGRAM_CONTENT_TOKEN }}
-          TELEGRAM_FOUNDER_CHAT_ID: ${{ secrets.TELEGRAM_FOUNDER_CHAT_ID }}
-        run: node scripts/blog/verify-live.mjs --wait --changed-only
+      # The local publisher verifies live releases and sends Telegram receipts.
+      # This keeps credentials local and does not depend on runner/site access.
