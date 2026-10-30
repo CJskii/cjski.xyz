@@ -20,7 +20,7 @@
   {
     "id": "finance-tracker",
     "area": "featured",
-    "homepage": true,
+    "homepage": false,
     "status": "Public source",
     "evidenceBasis": "Public repository review",
     "shareableScope": "Public implementation and repository links; no performance or usage claims."
@@ -28,7 +28,7 @@
   {
     "id": "self-hosted-compose",
     "area": "featured",
-    "homepage": false,
+    "homepage": true,
     "status": "Public source",
     "evidenceBasis": "Public repository review",
     "shareableScope": "Public implementation and repository links; no performance or usage claims."

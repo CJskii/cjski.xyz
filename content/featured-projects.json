@@ -2,8 +2,8 @@
   {
     "id": "home-security",
     "title": "Home Security",
-    "summary": "NVR event indexing, local vision AI and two-stage phone alerts in a self-hosted security system.",
-    "description": "An end-to-end TypeScript system around a Uniview NVR, combining a canonical PostgreSQL event index, versioned polygon zones, local Ollama descriptions, authenticated live viewing and durable Home Assistant notifications.",
+    "summary": "A dashboard and Home Assistant alerts built around my Uniview NVR.",
+    "description": "I use Uniview's API to index detections, check zones, fetch original images and send Home Assistant alerts. A local Qwen model adds descriptions, and the dashboard provides event search and live viewing.",
     "category": "AI & systems",
     "stack": [
       "TypeScript",

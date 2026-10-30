@@ -1,0 +1,160 @@
+/* Home Security case study: the main flow stays readable at phone widths. */
+.case:global(.project-description) {
+  max-width: none;
+}
+.case > :global(.project-scope):not(.security-flow-section),
+.case > :global(.project-evidence) {
+  max-width: 700px;
+}
+.case :global(.project-scope) > p + p {
+  margin-top: 18px;
+}
+.security-flow {
+  margin: 24px 0 0;
+}
+.security-flow-stages {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 26px;
+  padding: 0;
+  margin: 0;
+}
+.security-flow-stages > li {
+  position: relative;
+  padding: 24px 18px;
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.security-flow-number {
+  display: block;
+  font-size: 12px;
+  color: var(--secondary-text);
+  margin-bottom: 18px;
+}
+.security-flow-stages > li > svg:not(.security-flow-arrow) {
+  color: var(--accent-ink);
+  margin-bottom: 16px;
+}
+.security-flow-stages h3,
+.security-side-paths h3,
+.security-api-grid h3 {
+  font-size: 19px;
+  line-height: 1.3;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+.security-flow-stages p,
+.security-side-paths p,
+.security-api-grid p {
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+}
+.security-flow-arrow {
+  position: absolute;
+  right: -24px;
+  top: 50%;
+  color: var(--accent-ink);
+}
+.security-automation-paths {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 24px;
+  margin-top: 24px;
+}
+.security-automation-paths > span {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--ink);
+}
+.security-automation-paths svg,
+.security-side-paths > div > svg {
+  color: var(--accent-ink);
+}
+.security-automation-paths small {
+  font-size: 12px;
+  color: var(--secondary-text);
+}
+.security-flow figcaption {
+  margin-top: 20px;
+  max-width: 75ch;
+  font-size: 14px;
+}
+.security-side-paths,
+.security-api-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 26px;
+}
+.security-side-paths > div,
+.security-api-grid > div {
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--subtle);
+}
+.security-side-paths h3 {
+  margin-top: 14px;
+}
+.security-api-intro {
+  max-width: 70ch;
+}
+.security-api-grid code {
+  display: block;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  margin-bottom: 16px;
+  color: var(--accent-ink);
+}
+.security-api-grid .security-api-use {
+  margin-top: 12px;
+}
+@media (max-width: 950px) {
+  .security-flow-stages {
+    grid-template-columns: 1fr;
+  }
+  .security-flow-stages > li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 4px 16px;
+    padding: 20px;
+  }
+  .security-flow-number {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    margin: 0;
+  }
+  .security-flow-stages > li > svg:not(.security-flow-arrow) {
+    grid-row: 1 / 3;
+    margin: 0;
+  }
+  .security-flow-stages h3 {
+    padding-right: 18px;
+    margin: 0 0 4px;
+  }
+  .security-flow-stages p {
+    grid-column: 2;
+  }
+  .security-flow-arrow {
+    right: calc(50% - 10px);
+    top: auto;
+    bottom: -24px;
+    transform: rotate(90deg);
+  }
+  .security-automation-paths {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .security-side-paths,
+  .security-api-grid {
+    grid-template-columns: 1fr;
+  }
+}

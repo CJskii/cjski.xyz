@@ -13,7 +13,7 @@ test('Home Security uses the existing complete case-study schema and three-proje
   assert.equal(project.category, 'AI & systems');
   assert.ok(project.evidence.some(e => e.path === 'prisma/schema.prisma'));
   const register = json('project-register');
-  assert.equal(register.filter(p => p.homepage).length, 3);
+  assert.deepEqual(register.filter(p => p.homepage).map(p => p.id), ['home-security', 'token-playground', 'self-hosted-compose']);
   assert.equal(register.find(p => p.id === 'home-security').homepage, true);
   assert.equal(new Set(register.map(p => p.id)).size, register.length);
   for (const p of register) assert.ok(featured.some(f => f.id === p.id) || typeof p.id === 'number');
