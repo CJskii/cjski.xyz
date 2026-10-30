@@ -1,1 +1,71 @@
-[]
+[
+  {
+    "slug": "why-i-run-a-home-lab",
+    "title": "Why I run a home lab and what I actually use it for",
+    "description": "A look inside my home lab: useful self-hosted services, subscription trade-offs, how the setup connects, and where AI fits alongside everyday tools.",
+    "publishedAt": "2026-10-29T00:11:08.411874+00:00",
+    "updatedAt": "2026-10-30T00:08:30.712Z",
+    "draft": false,
+    "publicationAuthorised": true,
+    "fixture": false,
+    "tags": [
+      "self-hosting",
+      "home-lab"
+    ],
+    "readingTime": 10,
+    "cover": {
+      "url": "/blog/media/why-i-run-a-home-lab/lab-overview.svg",
+      "alt": "Home-lab overview grouping files and storage, media, home automation, networking and hosting, everyday tools, and AI experiments."
+    },
+    "authors": [
+      "cjski"
+    ],
+    "noindex": false,
+    "bundleDigest": "752aab5334bf6d9e23551861a983b18f653b199e2ad8a219b0c1b4b14ff95179",
+    "rendererDigest": "6dfeff8505920dda70531873e3daa4fc9f93ba152988ac42da13575eefb93e41",
+    "assets": [
+      {
+        "path": "assets/lab-overview.svg",
+        "alt": "Home-lab overview grouping files and storage, media, home automation, networking and hosting, everyday tools, and AI experiments.",
+        "caption": "The main jobs in the lab, grouped by purpose rather than network layout. This is a snapshot of configured services and explored work, not a claim of daily use. Home automation reflects reported dashboard work, not a newly verified live setup.",
+        "sha256": "ec0c556df939c9e3596fabd2edee5c5c7d00d2f7397b3626e8c209ffbb1fbd6f",
+        "url": "/blog/media/why-i-run-a-home-lab/lab-overview.svg"
+      },
+      {
+        "path": "assets/lab-overview-mobile.svg",
+        "alt": "Home-lab overview grouping files and storage, media, home automation, networking and hosting, everyday tools, and AI experiments.",
+        "caption": "The main jobs in the lab, grouped by purpose rather than network layout. This is a snapshot of configured services and explored work, not a claim of daily use. Home automation reflects reported dashboard work, not a newly verified live setup.",
+        "sha256": "ef581a9e4683c6852e3a76339a1f3ab33612cd8cf5aef7d324c0535b7fe9f3b0",
+        "url": "/blog/media/why-i-run-a-home-lab/lab-overview-mobile.svg"
+      },
+      {
+        "path": "assets/media-flow.svg",
+        "alt": "Media workflow from an Overseerr request through Sonarr or Radarr and a configured download client to the library, then Plex and viewing devices.",
+        "caption": "Overseerr manages the request; Plex serves the library. The middle steps depend on the configured download client and storage. This shows the roles, rather than a map of network connections.",
+        "sha256": "96ee2453476f987ab3ddea5bb009c014382bdc464727a256adcebd66cf6034b6",
+        "url": "/blog/media/why-i-run-a-home-lab/media-flow.svg"
+      },
+      {
+        "path": "assets/media-flow-mobile.svg",
+        "alt": "Media workflow from an Overseerr request through Sonarr or Radarr and a configured download client to the library, then Plex and viewing devices.",
+        "caption": "Overseerr manages the request; Plex serves the library. The middle steps depend on the configured download client and storage. This shows the roles, rather than a map of network connections.",
+        "sha256": "73f3b086b38e5619cd4f866074bec6be928a13eb7b877114fc1f2d58f4aecb88",
+        "url": "/blog/media/why-i-run-a-home-lab/media-flow-mobile.svg"
+      },
+      {
+        "path": "assets/container-roles.svg",
+        "alt": "Separate roles around Docker: Coolify builds and deploys projects, Portainer manages containers and stacks, Watchtower updates selected images, and Traefik routes web requests to applications.",
+        "caption": "These are responsibilities around the containers, not successive stops in a request. A browser request goes through the configured proxy to the application; it doesn't travel through every management tool.",
+        "sha256": "9d85c35d467367f7ec27d4005fd79c47b1335a76d4f17b23d42b1574f66a5cea",
+        "url": "/blog/media/why-i-run-a-home-lab/container-roles.svg"
+      },
+      {
+        "path": "assets/container-roles-mobile.svg",
+        "alt": "Separate roles around Docker: Coolify builds and deploys projects, Portainer manages containers and stacks, Watchtower updates selected images, and Traefik routes web requests to applications.",
+        "caption": "These are responsibilities around the containers, not successive stops in a request. A browser request goes through the configured proxy to the application; it doesn't travel through every management tool.",
+        "sha256": "71b96373224290c1d870917352284186e0657e5054ee118ce11cc9761bd76cd6",
+        "url": "/blog/media/why-i-run-a-home-lab/container-roles-mobile.svg"
+      }
+    ]
+  }
+]

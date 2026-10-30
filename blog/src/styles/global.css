@@ -178,9 +178,6 @@
   display: block;
   padding: 0.4rem 0.7rem;
   border-left: 2px solid var(--stroke);
-  transition:
-    color 0.15s,
-    background-color 0.15s;
 }
 .blog-reading-layout .article-toc a[aria-current="location"] {
   color: var(--accent-ink);
