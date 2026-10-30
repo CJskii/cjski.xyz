@@ -25,6 +25,7 @@ try {
       ["projects", "/projects"],
       ["lab", "/lab"],
       ["etherway", "/projects/1"],
+      ["home-security", "/projects/home-security"],
       ["contracts", "/contracts"],
       ["author", "/authors/cjskii"],
       ["newsletter", "/newsletter"],
@@ -109,9 +110,9 @@ try {
         throw new Error("Escape did not close menu");
     }
     await page.goto(base + "/projects");
-    if ((await page.locator(".project-grid > article").count()) !== 9)
+    if ((await page.locator(".project-grid > article").count()) !== 10)
       throw new Error("Curated projects missing");
-    if ((await page.locator(".project-grid img").count()) !== 9)
+    if ((await page.locator(".project-grid img").count()) !== 10)
       throw new Error("Every curated project needs an image");
     if (
       /Waldo|CV Generator|Battleship|Memory Card/i.test(

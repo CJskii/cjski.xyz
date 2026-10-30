@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+const json = (name) => JSON.parse(readFileSync(new URL('../content/' + name + '.json', import.meta.url), 'utf8'));
+test('Home Security uses the existing complete case-study schema and three-project homepage', () => {
+  const study = json('home-security-case-study');
+  assert.deepEqual(Object.keys(study).sort(), Object.keys(json('etherway-case-study')).sort());
+  assert.equal(study.architecture.length, 4);
+  assert.equal(study.decisions.length, 4);
+  assert.ok(study.limitations.length > 0);
+  const featured = json('featured-projects');
+  const project = featured.find(p => p.id === 'home-security');
+  assert.equal(project.category, 'AI & systems');
+  assert.ok(project.evidence.some(e => e.path === 'prisma/schema.prisma'));
+  const register = json('project-register');
+  assert.equal(register.filter(p => p.homepage).length, 3);
+  assert.equal(register.find(p => p.id === 'home-security').homepage, true);
+  assert.equal(new Set(register.map(p => p.id)).size, register.length);
+  for (const p of register) assert.ok(featured.some(f => f.id === p.id) || typeof p.id === 'number');
+});

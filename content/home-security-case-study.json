@@ -1,0 +1,47 @@
+{
+  "problem": "My Uniview NVR handles recording and basic detection reliably, but its event search and mobile alerts make it difficult to review what actually happened. Cloud camera subscriptions would also move private camera evidence outside my network. I built Home Security to turn NVR detections into searchable events, useful local descriptions and timely phone alerts while keeping the original media on the recorder.",
+  "contribution": "I built the system end to end: the Uniview push receiver, canonical event store, polygon geometry engine, local Ollama vision pipeline, authenticated go2rtc live-view proxy, durable webhook worker and React dashboard. I also integrated event history and mobile notifications with Home Assistant and Node-RED.",
+  "architecture": [
+    {
+      "title": "Uniview receiver and canonical event store",
+      "text": "A TypeScript/Fastify receiver commits Alarm and Structure reports to PostgreSQL through Prisma. Stable NVR identifiers preserve canonical event identity. The API retrieves original scenes and object crops on demand, checking stored hashes and source correspondence before serving them."
+    },
+    {
+      "title": "Local vision-LLM enrichment",
+      "text": "Ollama runs Qwen3.5 4B against a resized original scene and native object crop. Zod schemas and evidence validation gate accepted attributes and descriptions. Zone eligibility, bounded inference capacity, timeouts and explicit skip reasons keep enrichment independent of capture."
+    },
+    {
+      "title": "Two-stage notification ledger",
+      "text": "A PostgreSQL ledger coordinates rule evaluation, cooldown reservations, delivery claims and retry history. HMAC-signed webhooks reach Node-RED and Home Assistant. Source-based alerts arrive first; useful accepted AI descriptions can quietly update the same Android notification using its stable tag."
+    },
+    {
+      "title": "Live gateway and dashboard",
+      "text": "React, Tailwind CSS and shadcn/ui provide event exploration, original-image details and settings. A private go2rtc gateway supplies authenticated H.264 MSE streams. SVG overlays use synchronized NVR polygon geometry and stay aligned through resizing and fullscreen viewing."
+    }
+  ],
+  "decisions": [
+    {
+      "title": "Retrieve NVR media on demand",
+      "text": "I keep media references and hashes in PostgreSQL, with bounded request queues and browser RAM reuse for viewing. This avoids a duplicate snapshot archive, while making gallery speed dependent on the recorder's retrieval latency."
+    },
+    {
+      "title": "Keep inference off the initial alert path",
+      "text": "The first alert uses source categories and geometric zone matches. A separate, freshness-bounded AI update reuses the notification tag and does not consume cooldown again. The initial alert remains useful when inference is skipped or fails."
+    },
+    {
+      "title": "Separate capture, enrichment and delivery",
+      "text": "Canonical persistence happens independently of GPU availability and notification rules. Separate executable roles, durable claims and delivery diagnostics let me investigate one stage without losing the original detection or replaying historical alerts."
+    },
+    {
+      "title": "Version NVR geometry and preserve local policy",
+      "text": "The receiver synchronizes camera configuration every ten minutes and records polygon changes as new versions. Local names, interest flags, AI selection and notification rules attach to stable camera/rule slots. Geometry evaluation preserves uncertainty at boundaries and when historical configuration cannot establish a reliable location."
+    }
+  ],
+  "verification": "The repository includes backend and frontend test suites, synthetic Uniview fixtures, isolated database tests, strict TypeScript checks, Prisma validation and production builds. Focused tests cover source identity, multi-vertex geometry, AI output validation, authenticated media, cooldown races, delivery retries and same-tag notification updates. CI also scans Git history for secrets.",
+  "limitations": [
+    "The capture adapter targets Uniview Alarm/Structure pushes and its original-image APIs. Supporting another recorder needs a source-specific adapter and fixtures.",
+    "AI descriptions require a local Ollama vision host; throughput depends on available GPU memory and inference time. Bursts can exceed the single inference slot.",
+    "Live viewing needs go2rtc and compatible H.264 substreams. Phone delivery uses Node-RED, Home Assistant and a registered mobile app; media access must be reachable from the phone.",
+    "Geometric matches depend on source rectangles and the available zone configuration history. Boundary ambiguity and configuration changes between synchronization reads remain explicit."
+  ]
+}
