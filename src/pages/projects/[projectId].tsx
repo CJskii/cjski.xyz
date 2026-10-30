@@ -83,12 +83,12 @@ export default function ProjectDetail({
               {project.caseStudy.problem.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </section>
             <section className="project-scope">
-              <h2>My contribution</h2>
+              <h2>{project.id === "home-security" ? "The solution" : "My contribution"}</h2>
               <p>{project.caseStudy.contribution}</p>
             </section>
             {project.id === "home-security" && <HomeSecurityFlow />}
             <section className="project-scope">
-              <h2>Architecture</h2>
+              <h2>{project.id === "home-security" ? "How it works" : "Architecture"}</h2>
               <div className="case-architecture">
                 {project.caseStudy.architecture.map((part) => (
                   <div key={part.title}>
