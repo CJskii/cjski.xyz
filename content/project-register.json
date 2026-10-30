@@ -3,8 +3,8 @@
     "id": "home-security",
     "area": "featured",
     "homepage": true,
-    "status": "Release preparation",
-    "evidenceBasis": "Implementation and local verification",
+    "status": "Public source",
+    "evidenceBasis": "Public repository and implementation review",
     "shareableScope": "Sanitized source and system design; private deployment details excluded.",
     "contribution": "Built end to end.",
     "contributionBasis": "Project implementation and operator review."
