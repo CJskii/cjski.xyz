@@ -1,11 +1,66 @@
 [
   {
+    "id": "home-security",
+    "title": "Home Security",
+    "summary": "A dashboard and Home Assistant alerts built around my Uniview NVR.",
+    "description": "I use Uniview's API to index detections, check zones, fetch original images and send Home Assistant alerts. A local Qwen model adds descriptions, and the dashboard provides event search and live viewing.",
+    "category": "AI & systems",
+    "stack": [
+      "TypeScript",
+      "Fastify",
+      "React",
+      "PostgreSQL",
+      "Ollama"
+    ],
+    "githubLink": "https://github.com/CJskii/home-security",
+    "demoLink": "",
+    "codeAvailable": true,
+    "demoAvailable": false,
+    "scope": [
+      "Canonical NVR event capture and hash-verified original media retrieval.",
+      "Versioned geometry, local vision enrichment and independent zone policies.",
+      "Durable HMAC webhook delivery and silent same-notification AI updates.",
+      "React event exploration, live camera viewing and Home Assistant history."
+    ],
+    "evidence": [
+      {
+        "label": "NVR receiver and source adapters",
+        "path": "src/uniview/"
+      },
+      {
+        "label": "Event, geometry and delivery schema",
+        "path": "prisma/schema.prisma"
+      },
+      {
+        "label": "Local vision pipeline",
+        "path": "src/ai/"
+      },
+      {
+        "label": "Notification ledger and webhook delivery",
+        "path": "src/notifications/"
+      },
+      {
+        "label": "React dashboard",
+        "path": "web/src/"
+      }
+    ],
+    "image": "/projects/home-security-card.svg",
+    "imageWidth": 1200,
+    "imageHeight": 675,
+    "imageAlt": "A camera feeding an event index, local vision model and phone alert, illustrated on a dark background."
+  },
+  {
     "id": "token-playground",
     "title": "Token & prompt playground",
     "summary": "Local-model experiments with token budgets, streaming and validated JSON output.",
     "description": "A Next.js developer tool for composing prompts, inspecting token usage and comparing streaming and normal responses. Structured responses are checked with Zod, while PostgreSQL and Prisma retain runs, usage and errors for comparison.",
     "category": "AI & data",
-    "stack": ["Next.js", "Ollama", "PostgreSQL", "Zod"],
+    "stack": [
+      "Next.js",
+      "Ollama",
+      "PostgreSQL",
+      "Zod"
+    ],
     "githubLink": "https://github.com/CJskii/token-playground",
     "demoLink": "",
     "codeAvailable": true,
@@ -41,7 +96,12 @@
     "summary": "AI extraction and OCR for PDF statements, with a review step before saving transactions.",
     "description": "A self-hosted Python API that extracts statement text, falls back to OCR for scanned PDFs and sends the extracted content to a selected AI provider. Separate upload, review/confirmation and transaction-query endpoints keep extraction and persistence distinct.",
     "category": "AI & data",
-    "stack": ["Python", "FastAPI", "OCR", "Docker"],
+    "stack": [
+      "Python",
+      "FastAPI",
+      "OCR",
+      "Docker"
+    ],
     "githubLink": "https://github.com/CJskii/finance-tracker",
     "demoLink": "",
     "codeAvailable": true,
@@ -77,7 +137,12 @@
     "summary": "An Express API foundation with authentication, validation, MongoDB and API tests.",
     "description": "A modular Node.js API starter separating routes, controllers, services and database access. It includes JWT authentication, user validation, password hashing, request logging, error handling and a test suite for user operations.",
     "category": "Developer tools",
-    "stack": ["TypeScript", "Express", "MongoDB", "Jest"],
+    "stack": [
+      "TypeScript",
+      "Express",
+      "MongoDB",
+      "Jest"
+    ],
     "githubLink": "https://github.com/CJskii/api-starter-auth",
     "demoLink": "",
     "codeAvailable": true,
@@ -113,7 +178,12 @@
     "summary": "A Telegram frontend, bot/server and transaction interface connected in one project.",
     "description": "A three-part integration combining a Next.js Telegram Mini App, a Node.js bot/server and a browser-based transaction interface. The server provides route generation and WebSocket updates for the frontend.",
     "category": "Applications",
-    "stack": ["Next.js", "TypeScript", "Express", "WebSockets"],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "Express",
+      "WebSockets"
+    ],
     "githubLink": "https://github.com/CJskii/tg-omnichain-mini-app",
     "demoLink": "",
     "codeAvailable": true,
@@ -148,7 +218,12 @@
     "summary": "A FastAPI backend for contest participation, report scoring and ELO history.",
     "description": "A Python API with authentication, contest participation, SQLAlchemy data models and an ELO service for weighted report scoring. The repository includes tests for authentication, sign-up and rating calculations.",
     "category": "APIs & automation",
-    "stack": ["Python", "FastAPI", "SQLAlchemy", "pytest"],
+    "stack": [
+      "Python",
+      "FastAPI",
+      "SQLAlchemy",
+      "pytest"
+    ],
     "githubLink": "https://github.com/CJskii/leaderboard-system",
     "demoLink": "",
     "codeAvailable": true,
@@ -179,7 +254,11 @@
     "summary": "A Docker Compose collection for media, networking, storage and everyday self-hosted services.",
     "description": "A collection of service-specific Docker Compose configurations, with setup instructions for running and adapting individual stacks. It brings together tools for media, DNS filtering, reverse proxies, file storage and container management.",
     "category": "Self-hosting",
-    "stack": ["Docker Compose", "Linux", "Networking"],
+    "stack": [
+      "Docker Compose",
+      "Linux",
+      "Networking"
+    ],
     "githubLink": "https://github.com/cjski-selfhosted/self-hosted_docker_compose_collection",
     "demoLink": "",
     "codeAvailable": true,
@@ -214,7 +293,12 @@
     "summary": "Scheduled tweet collection with participant tracking and exports to Google Sheets and Excel.",
     "description": "A TypeScript automation script that retrieves tweets matching a coding-challenge query, resolves their authors and records participant activity. It handles paginated results, updates Google Sheets and exports to Excel. The source targets the Twitter API; live operation depends on current API access and configuration.",
     "category": "Automation",
-    "stack": ["TypeScript", "Twitter API", "Google Sheets", "ExcelJS"],
+    "stack": [
+      "TypeScript",
+      "Twitter API",
+      "Google Sheets",
+      "ExcelJS"
+    ],
     "githubLink": "https://github.com/CJskii/tweet-fetcher",
     "demoLink": "",
     "codeAvailable": true,

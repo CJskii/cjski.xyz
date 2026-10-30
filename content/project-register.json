@@ -1,5 +1,15 @@
 [
   {
+    "id": "home-security",
+    "area": "featured",
+    "homepage": true,
+    "status": "Release preparation",
+    "evidenceBasis": "Implementation and local verification",
+    "shareableScope": "Sanitized source and system design; private deployment details excluded.",
+    "contribution": "Built end to end.",
+    "contributionBasis": "Project implementation and operator review."
+  },
+  {
     "id": "token-playground",
     "area": "featured",
     "homepage": true,
@@ -10,7 +20,7 @@
   {
     "id": "finance-tracker",
     "area": "featured",
-    "homepage": true,
+    "homepage": false,
     "status": "Public source",
     "evidenceBasis": "Public repository review",
     "shareableScope": "Public implementation and repository links; no performance or usage claims."

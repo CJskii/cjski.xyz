@@ -1,0 +1,47 @@
+{
+  "problem": "I initially used Frigate, but ran into a limitation in its software detection pipeline: some nighttime activity never appeared as events, even though the Uniview NVR was detecting it. Different detector settings and models did not close that gap. I built Home Security around the NVR's API so the recorder's detections feed the event history directly.\n\nThe NVR handles detection and recording, while Home Security handles search, the dashboard and notifications. Image analysis runs locally on my always-on server, without uploading camera snapshots to a cloud model.",
+  "contribution": "I built a Fastify receiver for Uniview's Alarm and Structure pushes, an event index backed by PostgreSQL, and a React dashboard. I added zone filtering, live streaming through go2rtc, and push alerts via signed HMAC webhooks routed through Node-RED into Home Assistant. The pipeline fires an immediate phone alert with NVR details, then lets an optional local Qwen description update the notification in place.",
+  "architecture": [
+    {
+      "title": "Receive Alarm and Structure pushes from the NVR",
+      "text": "Cameras feed video directly into the Uniview NVR. The NVR pushes Alarm and Structure payloads over HTTP to a Fastify receiver. Those payloads provide the channel, source IDs, timestamps, object categories, and bounding boxes. I index the events in PostgreSQL and fetch the original scene snapshots and object crops on demand through Uniview's API."
+    },
+    {
+      "title": "Check coordinates against synced detection zones",
+      "text": "The receiver reads camera names, stream settings and EnterArea polygons from the NVR API every ten minutes. When an event arrives, it checks the reported coordinates against those polygons, then applies zone filters, object categories, and notification cooldowns. Events are always saved to the database, even if they do not qualify for an alert or AI analysis."
+    },
+    {
+      "title": "Send the initial alert, then enrich with local AI",
+      "text": "When an event matches an alert rule, a worker posts a signed HMAC webhook to Node-RED. The flow calls Home Assistant's notify service with the category, zone and an annotated image from the original NVR frame. Qwen3.5 4B runs separately through Ollama on the server GPU. If its accepted description adds useful detail, the worker quietly updates the same notification, keeping the image and event link."
+    },
+    {
+      "title": "Stream live feeds and review event history",
+      "text": "The React dashboard lets me filter events, view original snapshots and check delivery history. Live video uses H.264 substreams through a private go2rtc gateway, with the NVR's zone polygons drawn as SVG over the video. Home Assistant also shows recent detections and zone history."
+    }
+  ],
+  "decisions": [
+    {
+      "title": "Use the NVR as the single source of truth for detections",
+      "text": "Instead of running a separate detection pipeline alongside the recorder, I rely on the NVR's onboard analytics for object categories and bounding boxes. The recorder handles the continuous video load reliably. Local vision models only run afterwards to add descriptive context, so a slow or failed model run never drops an event from the log."
+    },
+    {
+      "title": "Leave raw recordings and snapshots on the recorder",
+      "text": "The Uniview NVR already stores continuous video and event stills on its internal drives. Home Security stores metadata, references, and hashes in PostgreSQL, fetching original images over the NVR API only when someone opens the dashboard or an alert fires. This avoids duplicating storage, even though gallery loads depend on NVR response speed."
+    },
+    {
+      "title": "Do not make phone alerts wait for Qwen",
+      "text": "I run Qwen3.5 4B on the GPU in my always-on server. Inference is slower than on my main workstation, but the server stays available when the workstation is off. The initial alert goes to Node-RED immediately from the NVR evidence. Accepted AI text can replace the message later using the same Android notification tag, without another sound or another cooldown."
+    },
+    {
+      "title": "Sync polygons from the NVR instead of re-drawing them",
+      "text": "I edit detection zones in Uniview's software. The receiver reads those EnterArea polygons every ten minutes and saves a new version when they change. Local zone names, AI settings and notification rules stay attached to the camera and rule slot, so a refresh keeps my choices."
+    }
+  ],
+  "verification": "I test the receiver with synthetic Uniview payloads and run backend tests for event identity, polygon geometry, HMAC signatures, cooldowns and delivery retries. The frontend has component tests and build checks. CI also runs TypeScript checks, Prisma validation, linting and a Git-history secret scan.",
+  "limitations": [
+    "The compact 4B vision model can miss finer detail, particularly in nighttime images, and sometimes gets movement direction wrong. Model size limits how much detail it can reliably describe.",
+    "Inference runs on my always-on server GPU, which is slower than my main workstation. There is one inference slot, so bursts can leave events without descriptions. Notification rules have separate cooldowns to limit repeated alerts. The original detections still stay in the event history.",
+    "The ingestion pipeline is built around Uniview's HTTP Alarm and Structure push formats and API endpoints. Adapting the system to a different NVR brand would require writing a new payload receiver and snapshot client.",
+    "Node-RED routes alerts into Home Assistant. That flow can be customized to announce an event through a voice assistant or control lights in the house; this setup currently uses phone notifications."
+  ]
+}

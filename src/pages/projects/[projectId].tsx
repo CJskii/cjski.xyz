@@ -6,6 +6,8 @@ import type {
 import Link from "next/link";
 import Image from "next/image";
 import { PageLayout } from "@/components/page-layout";
+import styles from "@/components/projects/home-security-flow.module.css";
+import { HomeSecurityFlow } from "@/components/projects/home-security-flow";
 import { ProjectCover } from "@/components/projects/project-cover";
 import { projects, type Project } from "@/lib/projects";
 export const getStaticPaths: GetStaticPaths = async () => ({
@@ -73,17 +75,18 @@ export default function ProjectDetail({
           />
         </div>
       )}
-      <div className="project-description">
+      <div className={`project-description${project.id === "home-security" ? ` ${styles.case}` : ""}`}>
         {project.caseStudy ? (
           <>
             <section className="project-scope">
               <h2>The problem</h2>
-              <p>{project.caseStudy.problem}</p>
+              {project.caseStudy.problem.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </section>
             <section className="project-scope">
               <h2>My contribution</h2>
               <p>{project.caseStudy.contribution}</p>
             </section>
+            {project.id === "home-security" && <HomeSecurityFlow />}
             <section className="project-scope">
               <h2>Architecture</h2>
               <div className="case-architecture">

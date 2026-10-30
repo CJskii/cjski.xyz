@@ -3,6 +3,7 @@ import featured from "../../content/featured-projects.json";
 import repositoryDates from "../../content/project-dates.json";
 import register from "../../content/project-register.json";
 import etherwayCase from "../../content/etherway-case-study.json";
+import homeSecurityCase from "../../content/home-security-case-study.json";
 const details: Record<
   number,
   {
@@ -213,6 +214,7 @@ export const projects: Project[] = [
   ];
   return {
     ...project,
+    ...(project.id === "home-security" ? { caseStudy: homeSecurityCase } : {}),
     ...(entry
       ? {
           area: entry.area,
