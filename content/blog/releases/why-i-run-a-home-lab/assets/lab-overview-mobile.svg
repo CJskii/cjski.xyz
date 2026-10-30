@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="390" height="1050" viewBox="0 0 390 1050" role="img" aria-labelledby="title desc">
 <title id="title">One lab, several useful jobs</title>
-<desc id="desc">Home-lab overview grouping files and storage, media, home automation, networking and hosting, everyday tools, and AI experiments. The main jobs in the lab, grouped by purpose rather than network layout. This is a snapshot of configured services and explored work, not a claim of daily use. Home automation reflects reported dashboard work, not a newly verified live setup.</desc>
+<desc id="desc">Home-lab overview grouping files and storage, media, home automation, networking and hosting, everyday tools, and AI experiments.</desc>
 <rect width="390" height="1050" rx="16" fill="#f7faf9"/>
 <g font-family="DejaVu Sans, sans-serif">
 <text x="24" y="45" font-size="28" font-weight="700" fill="#123b43">One lab,</text>
@@ -24,7 +24,7 @@
 <g transform="translate(42 447) scale(0.67)" stroke="#123b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" aria-hidden="true"><path d="m3 23 21-18 21 18M9 20v25h30V20"/><rect x="16" y="25" width="16" height="13" rx="2"/></g>
 <text x="88" y="465" font-size="21" font-weight="700" fill="#123b43">Home automation</text>
 <text x="44" y="504" font-size="18" font-weight="400" fill="#45616a">Dashboard work</text>
-<text x="44" y="529" font-size="18" font-weight="400" fill="#45616a">(reported)</text>
+<text x="44" y="529" font-size="18" font-weight="400" fill="#45616a"></text>
 </g>
 <g data-claim="M03">
 <rect x="24" y="570" width="342" height="126" rx="14" fill="#ffffff" stroke="#c9d9d9" stroke-width="1.5"/>
