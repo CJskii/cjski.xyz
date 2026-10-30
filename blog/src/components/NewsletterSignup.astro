@@ -1,0 +1,18 @@
+---
+import {newsletterSignup,publicationLinks} from '../../../src/lib/site';
+---
+<div class="newsletter-signup" id="newsletter-signup">
+  <div class="newsletter-signup-embed" data-newsletter-embed>
+    <script is:inline async src={newsletterSignup.scriptUrl} data-beehiiv-form={newsletterSignup.formId}></script>
+  </div>
+  <p class="newsletter-signup-note">Unsubscribe whenever you like. <a href={publicationLinks.newsletter!}>Form not loading? Subscribe on Beehiiv.</a></p>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-newsletter-embed]').forEach(host=>{
+    const labelFrames=()=>host.querySelectorAll('iframe').forEach(frame=>{
+      frame.title='Subscribe to Cold Boot';
+    });
+    new MutationObserver(labelFrames).observe(host,{childList:true,subtree:true});
+    labelFrames();
+  });
+</script>

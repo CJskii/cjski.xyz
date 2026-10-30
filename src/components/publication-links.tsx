@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { BookOpen, Mail } from "lucide-react";
-import { publicationLinks } from "@/lib/site";
 export function PublicationLinks() {
-  const newsletterUrl = publicationLinks.newsletter;
   return (
     <section
       className="publication-section"
@@ -20,19 +18,12 @@ export function PublicationLinks() {
             <span className="publication-action">Explore the blog</span>
           </div>
         </Link>
-        <Link
-          href={newsletterUrl || "/newsletter"}
-          className="publication-card newsletter-card"
-          target={newsletterUrl ? "_blank" : undefined}
-          rel={newsletterUrl ? "noopener noreferrer" : undefined}
-        >
+        <Link href="/newsletter" className="publication-card newsletter-card">
           <Mail size={25} aria-hidden="true" />
           <div>
             <h3>The newsletter</h3>
             <p>Selected articles, useful links and project updates.</p>
-            <span className="publication-action">
-              {newsletterUrl ? "Subscribe" : "Newsletter details"}
-            </span>
+            <span className="publication-action">Subscribe</span>
           </div>
         </Link>
       </div>

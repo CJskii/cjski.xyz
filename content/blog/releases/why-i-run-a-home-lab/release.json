@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "renderer_digest": "bec6d9e3ece8763ebf2859f0574a0655c9d6fb2c850474d8722f07be5866770a",
+  "renderer_digest": "6dfeff8505920dda70531873e3daa4fc9f93ba152988ac42da13575eefb93e41",
   "slug": "why-i-run-a-home-lab",
   "title": "Why I run a home lab and what I actually use it for",
   "description": "A look inside my home lab: useful self-hosted services, subscription trade-offs, how the setup connects, and where AI fits alongside everyday tools.",
@@ -65,10 +65,16 @@
       "caption": "These are responsibilities around the containers, not successive stops in a request. A browser request goes through the configured proxy to the application; it doesn't travel through every management tool."
     }
   ],
+  "replaces_digest": "0aaf9f192b83b8050f89f0be0795fdc83ded35c53836e606d6520c2aaab97ba4",
+  "first_published_at": "2026-10-29T00:11:08.411874+00:00",
+  "renderer_update": {
+    "scope": "Article reading controls and inline newsletter signup; published copy and media unchanged",
+    "previous_renderer_digest": "bec6d9e3ece8763ebf2859f0574a0655c9d6fb2c850474d8722f07be5866770a"
+  },
   "approval": {
     "action": "publish_web",
-    "request_digest": "0aaf9f192b83b8050f89f0be0795fdc83ded35c53836e606d6520c2aaab97ba4",
-    "approved_at": "2026-10-29T00:11:08.411874+00:00",
-    "decision_digest": "0580988331e131faa41228a4522c0f6c059931db4972b2634e146b1ab8305482"
+    "request_digest": "a89d693802c85e26cfab42a8c660739178aa7b41607a5b4dbe210c9db0e133d6",
+    "approved_at": "2026-10-30T00:08:30.712Z",
+    "decision_digest": "007d78e6ab2a964142965c0d214bea039959c3c3cd5cb7f15ae93ce8c482a09c"
   }
 }

@@ -32,7 +32,7 @@
 }
 .blog-reading-layout .article-toc nav {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.25rem;
 }
 .blog-reading-layout .article-toc a {
   font-size: 0.8rem;
@@ -140,7 +140,8 @@
   object-fit: cover;
 }
 .article-share {
-  margin-top: 1.5rem;
+  margin-left: auto;
+  max-width: 100%;
   display: grid;
   gap: 0.65rem;
 }
@@ -166,8 +167,62 @@
 .article-share-url {
   width: min(100%, 36rem);
   padding: 0.65rem;
-  background: var(--background);
+  background: var(--surface);
   color: inherit;
   border: 1px solid currentColor;
   border-radius: 0.35rem;
+}
+
+/* The contents marker follows reading position, without changing the URL. */
+.blog-reading-layout .article-toc a {
+  display: block;
+  padding: 0.4rem 0.7rem;
+  border-left: 2px solid var(--stroke);
+}
+.blog-reading-layout .article-toc a[aria-current="location"] {
+  color: var(--accent-ink);
+  background: var(--newsletter-surface);
+  border-color: var(--accent-ink);
+  font-weight: 600;
+}
+.blog-reading-layout .article-toc .toc-subsection {
+  padding-left: 1.2rem;
+}
+.article-share-buttons {
+  border-left: 1px solid var(--stroke);
+  padding-left: 1rem;
+  gap: 0.25rem;
+}
+.article-share-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  color: var(--secondary-text);
+  padding: 0.55rem 0.65rem;
+  min-height: 44px;
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
+  font: inherit;
+  white-space: nowrap;
+}
+.article-share-tool:hover {
+  background: var(--surface);
+  color: var(--accent-ink);
+  border-color: var(--stroke);
+}
+.article-share-tool:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+}
+@media (max-width: 600px) {
+  .article-share {
+    width: 100%;
+    margin-left: 0;
+  }
+  .article-share-buttons {
+    border-left: 0;
+    border-top: 1px solid var(--stroke);
+    padding: 0.5rem 0 0;
+  }
 }
