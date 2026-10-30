@@ -1,5 +1,5 @@
 {
-  "problem": "I started out with Frigate. It worked well enough during the day, but at night I kept finding things in the camera footage that never appeared in the event list. I was playing with different settings to make it work and tried different models in Frigate, but eventually reached the point where it seemed better to treat my Uniview NVR as the source of truth for events instead of relying on separate software for reporting objects. The recorder was already catching the activity and storing the video anyway.\n\nI decided to build around its API so the NVR handles the detection and recording, while Home Security handles the search, dashboard, and notifications. I also wanted image analysis to run locally without uploading camera snapshots to a cloud model.",
+  "problem": "I initially used Frigate, but ran into a limitation in its software detection pipeline: some nighttime activity never appeared as events, even though the Uniview NVR was detecting it. Different detector settings and models did not close that gap. I built Home Security around the NVR's API so the recorder's detections feed the event history directly.\n\nThe NVR handles detection and recording, while Home Security handles search, the dashboard and notifications. Image analysis runs locally on my always-on server, without uploading camera snapshots to a cloud model.",
   "contribution": "I built a Fastify receiver for Uniview's Alarm and Structure pushes, an event index backed by PostgreSQL, and a React dashboard. I added zone filtering, live streaming through go2rtc, and push alerts via signed HMAC webhooks routed through Node-RED into Home Assistant. The pipeline fires an immediate phone alert with NVR details, then lets an optional local Qwen description update the notification in place.",
   "architecture": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "title": "Send the initial alert, then enrich with local AI",
-      "text": "When an event matches an alert rule, a worker posts a signed HMAC webhook to Node-RED. The flow calls Home Assistant's notify service with the category, zone and an annotated image from the original NVR frame. Qwen3.5 4B runs separately through Ollama. If its accepted description adds useful detail, the worker quietly updates the same notification, keeping the image and event link."
+      "text": "When an event matches an alert rule, a worker posts a signed HMAC webhook to Node-RED. The flow calls Home Assistant's notify service with the category, zone and an annotated image from the original NVR frame. Qwen3.5 4B runs separately through Ollama on the server GPU. If its accepted description adds useful detail, the worker quietly updates the same notification, keeping the image and event link."
     },
     {
       "title": "Stream live feeds and review event history",
@@ -30,7 +30,7 @@
     },
     {
       "title": "Do not make phone alerts wait for Qwen",
-      "text": "Local vision inference is slow on this hardware. The initial alert goes to Node-RED with the NVR's object category, matched zone and an annotated image. Accepted AI text can replace the message later using the same Android notification tag. It does not make another sound or consume the rule's cooldown again."
+      "text": "I run Qwen3.5 4B on the GPU in my always-on server. Inference is slower than on my main workstation, but the server stays available when the workstation is off. The initial alert goes to Node-RED immediately from the NVR evidence. Accepted AI text can replace the message later using the same Android notification tag, without another sound or another cooldown."
     },
     {
       "title": "Sync polygons from the NVR instead of re-drawing them",
@@ -39,8 +39,8 @@
   ],
   "verification": "I test the receiver with synthetic Uniview payloads and run backend tests for event identity, polygon geometry, HMAC signatures, cooldowns and delivery retries. The frontend has component tests and build checks. CI also runs TypeScript checks, Prisma validation, linting and a Git-history secret scan.",
   "limitations": [
-    "The local vision model is slow. It sometimes gets movement direction wrong or misses details in nighttime images. I check the original NVR snapshot when the description matters.",
-    "AI has one inference slot, so bursts can leave some events without descriptions. Per-rule cooldowns limit repeated phone alerts. Both limits leave the original detections in the event history.",
+    "The compact 4B vision model can miss finer detail, particularly in nighttime images, and sometimes gets movement direction wrong. Model size limits how much detail it can reliably describe.",
+    "Inference runs on my always-on server GPU, which is slower than my main workstation. There is one inference slot, so bursts can leave events without descriptions. Notification rules have separate cooldowns to limit repeated alerts. The original detections still stay in the event history.",
     "The ingestion pipeline is built around Uniview's HTTP Alarm and Structure push formats and API endpoints. Adapting the system to a different NVR brand would require writing a new payload receiver and snapshot client.",
     "Node-RED routes alerts into Home Assistant. That flow can be customized to announce an event through a voice assistant or control lights in the house; this setup currently uses phone notifications."
   ]
